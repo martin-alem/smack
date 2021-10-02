@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
+
+/*
+    THEME
+*/
+:root {
+  /* LIGHT THEME COLOR */
+  --primary-color: #7269ef;
+  --primary-dark-color: #524cad;
+  --dark-text-color: #3e454c;
+  --light-text-color: #7e8aa0;
+  --text-color: #61696d;
+  --form-input-color: #f5f6fa;
+  --bg-color: #f7f7ff;
+  --color-white: #ffffff;
+  --color-error: #f1476f;
+}
+
+/*
+    CSS RESET RULE
+*/
+html {
+  font-size: 10px;
+  font-family: "Lato", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-color);
+}
+
+/*********************** LOGIN PAGE ******************************/
+
+main.login {
+  max-width: 50rem;
+  margin: 10rem auto;
+}
+
+main.login .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main.login .header img {
+  width: 100px;
+  height: 100px;
+}
+
+main.login .header h1 {
+  color: var(--dark-text-color);
+  font-weight: bolder;
+  font-size: 3.5rem;
+}
+
+main.login .header p {
+  color: var(--light-text-color);
+  margin-top: -2rem;
+  font-size: 1.6rem;
+}
+
+main.login .login_container {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 5rem 3rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main.login .login_container #login_form {
+  width: 100%;
+}
+
+main.login .login_container #login_form input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 1.5rem 4rem;
+  outline: none;
+  border: 1px solid #e6ebf5;
+  border-radius: 3px;
+  background-color: var(--form-input-color);
+}
+
+main.login .login_container #login_form label {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+main.login .login_container #login_form .fas {
+  position: relative;
+  font-size: 1.8rem;
+  color: var(--light-text-color);
+  top: -3.4rem;
+  left: 1.8rem;
+}
+
+main.login .login_container .error {
+  display: inline;
+  text-align: center;
+  color: var(--color-error);
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+main.login .login_container #login_form .login_form_more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main.login
+  .login_container
+  #login_form
+  .login_form_more
+  .login_form_more__remember {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+main.login
+  .login_container
+  #login_form
+  .login_form_more
+  .login_form_more__forgot
+  a {
+  text-decoration: none;
+  color: var(--light-text-color);
+  font-size: 1.5rem;
+}
+
+main.login .btn {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.5s;
+}
+main.login .btn:hover {
+  background-color: var(--primary-dark-color);
+}
+
+main.login .footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+main.login .footer p {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+main.login .footer p a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/********************* END LOGIN PAGE **************************/
+
+
+
+/********************* UTILITY CLASS *************************/
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+/********************* END UTILITY **************************/
+
+
+
+/******************* MEDIA QUERY **************************/
+
+/*********************** MEDIA QUERY LOGIN PAGE ******************************/
+
+
+
+/*********************** END MEDIA QUERY LOGIN PAGE ******************************/
