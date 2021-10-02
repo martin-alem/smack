@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Martin Alemajoh">
+    <title>Smack | Reset</title>
+
+    <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon">
+
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="../css/style.css">
+    <!--Font Awesome-->
+    <script defer src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="smack">
+        <div class="header">
+            <img src="../image/logo.svg" alt="logo">
+            <h1>Reset password</h1>
+            <p>Remember to user a secure password</p>
+        </div>
+        <div class="smack_container">
+            <span class="error hide">invalid phone or password</span>
+            <form action="/reset" method="post" id="smack_form">
+                <div class="smack_form_phone">
+                    <label for="password">New Password</label>
+                    <input type="password" name="password" id="password" placeholder="..............">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="smack_form_password">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="............">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button class="btn btn-primary" type="submit">Reset password</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

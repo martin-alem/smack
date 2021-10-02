@@ -31,4 +31,8 @@ app.get("/verify", (req, res) => {
 app.get("/reset_request", (req, res) => {
   res.render("reset_request");
 });
+
+app.get("/reset", (req, res) => {
+  res.render("reset.ejs");
+});
 export default httpServer;
