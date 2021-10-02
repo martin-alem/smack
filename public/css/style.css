@@ -36,38 +36,38 @@ body {
   background-color: var(--bg-color);
 }
 
-/*********************** LOGIN PAGE ******************************/
+/*********************** LOGIN AND SIGNUP PAGE ******************************/
 
-main.login {
+main.smack {
   max-width: 50rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
 
-main.login .header {
+main.smack .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-main.login .header img {
+main.smack .header img {
   width: 100px;
   height: 100px;
 }
 
-main.login .header h1 {
+main.smack .header h1 {
   color: var(--dark-text-color);
   font-weight: bolder;
   font-size: 3.5rem;
 }
 
-main.login .header p {
+main.smack .header p {
   color: var(--light-text-color);
   margin-top: -2rem;
   font-size: 1.6rem;
 }
 
-main.login .login_container {
+main.smack .smack_container {
   width: 100%;
   background-color: var(--color-white);
   padding: 5rem 3rem;
@@ -78,12 +78,14 @@ main.login .login_container {
   align-items: center;
 }
 
-main.login .login_container #login_form {
+main.smack .smack_container #smack_form {
   width: 100%;
 }
 
-main.login .login_container #login_form input[type="tel"],
-input[type="password"] {
+main.smack .smack_container #smack_form input[type="tel"],
+input[type="password"],
+input[type="text"],
+input[type="email"] {
   width: 100%;
   padding: 1.5rem 4rem;
   outline: none;
@@ -92,12 +94,12 @@ input[type="password"] {
   background-color: var(--form-input-color);
 }
 
-main.login .login_container #login_form label {
+main.smack .smack_container #smack_form label {
   color: var(--text-color);
   font-size: 1.5rem;
 }
 
-main.login .login_container #login_form .fas {
+main.smack .smack_container #smack_form .fas {
   position: relative;
   font-size: 1.8rem;
   color: var(--light-text-color);
@@ -105,7 +107,11 @@ main.login .login_container #login_form .fas {
   left: 1.8rem;
 }
 
-main.login .login_container .error {
+main.smack .smack_container #smack_form .fa-eye-slash {
+  cursor: pointer;
+}
+
+main.smack .smack_container .error {
   display: inline;
   text-align: center;
   color: var(--color-error);
@@ -113,34 +119,34 @@ main.login .login_container .error {
   text-transform: capitalize;
 }
 
-main.login .login_container #login_form .login_form_more {
+main.smack .smack_container #smack_form .smack_form_more {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-main.login
-  .login_container
-  #login_form
-  .login_form_more
-  .login_form_more__remember {
+main.smack
+  .smack_container
+  #smack_form
+  .smack_form_more
+  .smack_form_more__remember {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-main.login
-  .login_container
-  #login_form
-  .login_form_more
-  .login_form_more__forgot
+main.smack
+  .smack_container
+  #smack_form
+  .smack_form_more
+  .smack_form_more__forgot
   a {
   text-decoration: none;
   color: var(--light-text-color);
   font-size: 1.5rem;
 }
 
-main.login .btn {
+main.smack .btn {
   width: 100%;
   padding: 1.5rem 2rem;
   outline: none;
@@ -152,26 +158,26 @@ main.login .btn {
   margin-top: 2rem;
   transition: background-color 0.5s;
 }
-main.login .btn:hover {
+main.smack .btn:hover {
   background-color: var(--primary-dark-color);
 }
 
-main.login .footer {
+main.smack .footer {
   margin-top: 2rem;
   text-align: center;
 }
 
-main.login .footer p {
+main.smack .footer p {
   font-size: 1.5rem;
   color: var(--text-color);
 }
 
-main.login .footer p a {
+main.smack .footer p a {
   text-decoration: none;
   color: var(--primary-color);
 }
 
-/********************* END LOGIN PAGE **************************/
+/********************* END LOGIN AND SIGNUP PAGE **************************/
 
 /********************* UTILITY CLASS *************************/
 .hide {
@@ -189,9 +195,9 @@ main.login .footer p a {
     font-size: 8px;
   }
 
-  main.login {
+  main.smack {
     margin: 5rem auto;
   }
 }
 
-/*********************** END MEDIA QUERY LOGIN PAGE ******************************/
+/*********************** END MEDIA QUERY smack PAGE ******************************/

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Martin Alemajoh">
-    <title>Smack | Login</title>
+    <title>Smack | Signup</title>
 
     <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon">
     <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon">
@@ -21,36 +21,42 @@
     <main class="smack">
         <div class="header">
             <img src="../image/logo.svg" alt="logo">
-            <h1>Sign in</h1>
-            <p>Sign in to continue with smack</p>
+            <h1>Sign up</h1>
+            <p>Get your smack account now</p>
         </div>
         <div class="smack_container">
-            <span class="error">invalid phone or password</span>
-            <form action="/login" method="post" id="smack_form">
+            <span class="error hide">invalid phone or password</span>
+            <form action="/signup" method="post" id="smack_form">
+                <div class="smack_form_name">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" id="first_name" placeholder="John">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="smack_form_name">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name" id="last_name" placeholder="Deo">
+                    <i class="fas fa-user"></i>
+                </div>
                 <div class="smack_form_phone">
                     <label for="phone">Phone</label>
                     <input type="tel" name="phone" id="phone" placeholder="5426985742">
                     <i class="fas fa-phone-alt"></i>
                 </div>
+                <div class="smack_form_email">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="johndeo@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </div>
                 <div class="smack_form_password">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="............">
-                    <i class="fas fa-lock"></i>
+                    <i class="fas fa-eye-slash"></i>
                 </div>
-                <div class="smack_form_more">
-                    <div class="smack_form_more__remember">
-                        <input type="checkbox" name="remember" id="remember">
-                        <label>Remember me</label>
-                    </div>
-                    <div class="smack_form_more__forgot">
-                        <a href="">Forgot password?</a>
-                    </div>
-                </div>
-                <button class="btn btn-primary" type="submit">Sign in</button>
+                <button class="btn btn-primary" type="submit">Sign up</button>
             </form>
         </div>
         <div class="footer">
-            <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+            <p>Already have an account? <a href="/login">Sign in here</a></p>
         </div>
     </main>
 </body>

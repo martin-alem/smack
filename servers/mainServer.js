@@ -16,8 +16,12 @@ app.use(favicon(path.join(__dirname, "../public", "/image/favicon-16x16.png")));
 app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.get("/login", (req, res) => {
   res.render("login.ejs");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup.ejs");
 });
 
 export default httpServer;
