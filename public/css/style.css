@@ -173,8 +173,6 @@ main.login .footer p a {
 
 /********************* END LOGIN PAGE **************************/
 
-
-
 /********************* UTILITY CLASS *************************/
 .hide {
   visibility: hidden;
@@ -182,12 +180,18 @@ main.login .footer p a {
 }
 /********************* END UTILITY **************************/
 
-
-
 /******************* MEDIA QUERY **************************/
 
 /*********************** MEDIA QUERY LOGIN PAGE ******************************/
 
+@media only screen and (max-width: 280px) {
+  html {
+    font-size: 8px;
+  }
 
+  main.login {
+    margin: 5rem auto;
+  }
+}
 
 /*********************** END MEDIA QUERY LOGIN PAGE ******************************/
