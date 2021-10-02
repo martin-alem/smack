@@ -14,7 +14,7 @@
   --bg-color: #f7f7ff;
   --color-white: #ffffff;
   --color-error: #f1476f;
-  --color-info-bg:#cdf7ec;
+  --color-info-bg: #cdf7ec;
   --color-info-text: #2b8260;
 }
 
@@ -119,6 +119,16 @@ main.smack .smack_container .error {
   padding: 1rem;
   text-align: center;
   color: var(--color-white);
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+main.smack .smack_container .info {
+  background-color: var(--color-info-bg);
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-info-text);
   font-size: 1.6rem;
   text-transform: capitalize;
 }

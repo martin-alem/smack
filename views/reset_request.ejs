@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Martin Alemajoh">
-    <title>Smack | Verify Phone</title>
+    <title>Smack | Reset Request</title>
 
     <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon">
     <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon">
@@ -21,23 +21,23 @@
     <main class="smack">
         <div class="header">
             <img src="../image/logo.svg" alt="logo">
-            <h1>Verify you phone</h1>
-            <p>We just want to make sure it's you</p>
+            <h1>Request a reset</h1>
+            <p>It's ok, we all forget passwords</p>
         </div>
         <div class="smack_container">
-            <span class="error hide">invalid phone or password invalid phone or password invalid phone or
+            <span class="info">invalid phone or password invalid phone or password invalid phone or
                 password</span>
-            <form action="/verify" method="post" id="smack_form">
+            <form action="/reset_request" method="post" id="smack_form">
                 <div class="smack_form_code">
-                    <label for="code">Verification Code</label>
-                    <input type="text" name="code" id="code">
-                    <i class="fas fa-qrcode"></i>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <i class="fas fa-envelope"></i>
                 </div>
-                <button class="btn btn-primary" type="submit">Verify phone</button>
+                <button class="btn btn-primary" type="submit">Request reset</button>
             </form>
         </div>
         <div class="footer">
-            <p>Didn't get the code? <a href="/request_new_code">Request another here</a></p>
+            <p>Did you remember? <a href="/login">Sign in</a></p>
         </div>
     </main>
 </body>
