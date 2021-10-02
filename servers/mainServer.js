@@ -24,4 +24,8 @@ app.get("/signup", (req, res) => {
   res.render("signup.ejs");
 });
 
+app.get("/verify", (req, res) => {
+  res.render("verify.ejs");
+});
+
 export default httpServer;
