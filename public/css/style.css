@@ -14,6 +14,8 @@
   --bg-color: #f7f7ff;
   --color-white: #ffffff;
   --color-error: #f1476f;
+  --color-info-bg:#cdf7ec;
+  --color-info-text: #2b8260;
 }
 
 /*
@@ -112,9 +114,11 @@ main.smack .smack_container #smack_form .fa-eye-slash {
 }
 
 main.smack .smack_container .error {
-  display: inline;
+  background-color: var(--color-error);
+  border-radius: 4px;
+  padding: 1rem;
   text-align: center;
-  color: var(--color-error);
+  color: var(--color-white);
   font-size: 1.6rem;
   text-transform: capitalize;
 }
@@ -181,7 +185,7 @@ main.smack .footer p a {
 
 /********************* UTILITY CLASS *************************/
 .hide {
-  visibility: hidden;
+  display: none;
   opacity: 0;
 }
 /********************* END UTILITY **************************/

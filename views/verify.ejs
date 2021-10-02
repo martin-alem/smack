@@ -25,13 +25,14 @@
             <p>We just want to make sure it's you</p>
         </div>
         <div class="smack_container">
+            <span class="error hide">invalid phone or password invalid phone or password invalid phone or
+                password</span>
             <form action="/verify" method="post" id="smack_form">
                 <div class="smack_form_code">
                     <label for="phone">Verification Code</label>
                     <input type="text" name="code" id="code">
                     <i class="fas fa-qrcode"></i>
                 </div>
-                <span class="error">invalid phone or password</span>
                 <button class="btn btn-primary" type="submit">Verify phone</button>
             </form>
         </div>
