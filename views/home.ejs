@@ -277,13 +277,14 @@
                     </div>
                 </div>
             </div>
-            <div id="profile" class="tab_profile">
+            <div id="profile" class="tab_profile hide">
                 <div class="heading">
                     <h1>My Profile</h1>
                     <span class="material-icons">more_vert</span>
                 </div>
                 <div class="my_image">
                     <img src="../image/test.jpg" alt="logo">
+                    <h1>Martin Alemajoh</h1>
                     <span class="material-icons">signal_wifi_4_bar</span>
                 </div>
                 <div class="about">
@@ -304,6 +305,96 @@
                     <div class="memeber">
                         <p>Member Since</p>
                         <h3>October 1, 2021</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="tab_settings">
+                <div class="heading">
+                    <h1>Settings</h1>
+                </div>
+                <div class="my_image">
+                    <img src="../image/test.jpg" alt="logo">
+                    <h1>Martin Alemajoh</h1>
+                    <span class="material-icons">add_a_photo</span>
+                </div>
+                <div class="about">
+                    <h3>Personal Information</h3>
+                    <hr />
+                    <div class="name">
+                        <p>First Name</p>
+                        <form action="/update" method="post">
+                            <input type="text" name="first_name" id="first_name" value="Martin">
+                        </form>
+                    </div>
+                    <div class="name">
+                        <p>Last Name</p>
+                        <form>
+                            <input type="text" value="Alemajoh" disabled>
+                        </form>
+                    </div>
+                    <div class="email">
+                        <p>Email Address</p>
+                        <form action="/update" method="post">
+                            <input type="text" name="email" id="email" value="alemajohmartin@gmail.com">
+                        </form>
+                    </div>
+                    <div class="phone">
+                        <p>Phone Number</p>
+                        <form>
+                            <input type="text" value="614-284-5041" disabled>
+                        </form>
+                    </div>
+                </div>
+                <div class="privacy">
+                    <div class="profile_picture">
+                        <p>Profile picture</p>
+                        <select name="show_profile_pic" id="show_profile_pic">
+                            <option value="yes">Public</option>
+                            <option value="no">Private</option>
+                        </select>
+                    </div>
+                    <div class="last_seen">
+                        <p>Last seen</p>
+                        <select name="show_last_seen" id="show_last_seen">
+                            <option value="yes">Public</option>
+                            <option value="no">Private</option>
+                        </select>
+                    </div>
+                    <div class="status">
+                        <p>Status</p>
+                        <select name="show_status" id="show_status">
+                            <option value="yes">Public</option>
+                            <option value="no">Private</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="security">
+                    <div class="two_factor_auth">
+                        <p>Enable Two Factor Authentication</p>
+                        <select name="two_factor_auth" id="two_factor_auth">
+                            <option value="no">Disabled</option>
+                            <option value="yes">Enabled</option>
+                        </select>
+                    </div>
+                    <div class="monitor">
+                        <p>Enable Account Monitoring</p>
+                        <select name="monitor_account" id="monitor_account">
+                            <option value="no">Disabled</option>
+                            <option value="yes">Enabled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="more">
+                    <div class="developer">
+                        <p>Developer API</p>
+                        <a href="">API Access</a>
+                    </div>
+                    <div class="mode">
+                        <p>Light and Dark Mode</p>
+                        <select name="mode" id="mode">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
                     </div>
                 </div>
             </div>
