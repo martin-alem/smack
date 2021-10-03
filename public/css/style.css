@@ -13,6 +13,7 @@
   --form-input-color: #f5f6fa;
   --bg-color: #f7f7ff;
   --color-white: #ffffff;
+  --ghost-white: #f5f7fb;
   --color-error: #f1476f;
   --color-info-bg: #cdf7ec;
   --color-info-text: #2b8260;
@@ -38,7 +39,7 @@ body {
   background-color: var(--bg-color);
 }
 
-/*********************** LOGIN AND SIGNUP PAGE ******************************/
+/*********************** FORMS ******************************/
 
 main.smack {
   max-width: 50rem;
@@ -203,18 +204,290 @@ textarea {
   font-family: inherit;
 }
 
-/********************* END LOGIN AND SIGNUP PAGE **************************/
+/********************* END FORMS **************************/
+
+/********************* HOME PAGE **************************/
+
+main.home {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 8rem 20rem auto;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-areas:
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+    "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT";
+}
+
+main.home .navigation {
+  background-color: var(--color-white);
+  grid-area: NAV;
+}
+
+main.home .tab_content {
+  background-color: var(--ghost-white);
+  grid-area: TAB;
+}
+
+main.home .chat_room {
+  background-color: seagreen;
+  grid-area: CHT;
+  justify-self: stretch;
+}
+
+main.home .audio_room {
+  background-color: palegreen;
+  display: none;
+}
+
+main.home .video_room {
+  background-color: yellowgreen;
+  display: none;
+}
+
+main.home .profile {
+  background-color: hotpink;
+  display: none;
+}
+
+main.home .navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main.home .navigation .navigation_logo {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+main.home .navigation .navigation_logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+main.home .navigation .navigation_tabs {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+main.home .navigation .navigation_tabs div span,
+.navigation_extra div span {
+  font-size: 3.4rem;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+main.home .navigation .navigation_tabs div {
+  cursor: pointer;
+}
+
+[data-tooltip] {
+  position: relative;
+  cursor: default;
+}
+
+[data-tooltip]::after {
+  position: absolute;
+  width: fit-content;
+  top: -50%;
+  left: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  content: attr(data-tooltip);
+  background-color: var(--dark-text-color);
+  color: var(--color-white);
+  font-weight: 900;
+  border-radius: 1rem;
+  padding: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, 50%);
+  transition: opacity 0.4s, top 0.4s;
+}
+
+[data-tooltip]:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: -5rem;
+}
+
+main.home .navigation .navigation_extra {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main.home .navigation .navigation_extra .avatar {
+  background-color: var(--form-input-color);
+  padding: 2rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--primary-dark-color);
+  cursor: pointer;
+}
+
+/********************* END HOME PAGE **************************/
 
 /********************* UTILITY CLASS *************************/
 .hide {
   display: none;
   opacity: 0;
 }
+
+.active {
+  color: var(--primary-color) !important;
+}
 /********************* END UTILITY **************************/
 
 /******************* MEDIA QUERY **************************/
 
-/*********************** MEDIA QUERY LOGIN PAGE ******************************/
+/*********************** MEDIA QUERY HOME ******************************/
+@media only screen and (max-width: 1248px) {
+  main.home {
+    grid-template-areas:
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV";
+  }
+
+  main.home .navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  main.home .navigation .navigation_logo {
+    display: flex;
+    margin-top: 0rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main.home .navigation .navigation_logo img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  main.home .navigation .navigation_tabs {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  main.home .navigation .navigation_extra {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  main.home .navigation .navigation_extra .avatar {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 888px) {
+  main.home {
+    grid-template-areas:
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
+      "NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV NAV";
+  }
+
+  main.home .tab_content {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 669px) {
+  main.home .navigation .navigation_logo {
+    display: none;
+  }
+
+  main.home .navigation {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main.home .navigation .navigation_tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  main.home .navigation .navigation_extra div {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  main.home .navigation .navigation_extra .avatar {
+    display: none;
+  }
+
+  main.home .navigation {
+    display: inline;
+    padding: 2rem;
+  }
+
+  main.home .navigation .navigation_tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+}
+
+/*********************** MEDIA QUERY FORMS ******************************/
 
 @media only screen and (max-width: 280px) {
   html {
@@ -226,4 +499,4 @@ textarea {
   }
 }
 
-/*********************** END MEDIA QUERY smack PAGE ******************************/
+/*********************** END MEDIA QUERY FORM ******************************/
