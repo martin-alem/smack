@@ -17,6 +17,7 @@
   --color-error: #f1476f;
   --color-info-bg: #cdf7ec;
   --color-info-text: #2b8260;
+  --color-lavender: #e6ebf5;
 }
 
 /*
@@ -212,7 +213,7 @@ main.home {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 8rem 20rem auto;
+  grid-template-columns: 8rem 20rem 20rem repeat(9, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas:
     "NAV TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
@@ -351,12 +352,247 @@ main.home .navigation .navigation_extra .avatar {
   cursor: pointer;
 }
 
+main.home .tab_content {
+  padding: 0rem 2rem;
+  width: 100%;
+  display: flex;
+}
+
+main.home .tab_content .tab_section {
+  width: 100% ;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10rem 18rem auto;
+  justify-content: center;
+}
+
+main.home .tab_content .tab_section h1 {
+  font-size: 2.3rem;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: 1.5rem 4rem;
+  outline: none;
+  border: 1px solid #e6ebf5;
+  border-radius: 3px;
+  background-color: var(--bg-color);
+}
+
+main.home .tab_content .tab_section form span {
+  position: relative;
+  font-size: 2rem;
+  color: var(--light-text-color) !important;
+  top: -3.4rem;
+  left: 1.8rem;
+}
+
+main.home .tab_content .tab_section .online_friends {
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Style scroll bars */
+main.home .tab_content .tab_section .online_friends::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* main.home .tab_content .tab_section .online_friends::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
+main.home .tab_content .tab_section .online_friends::-webkit-scrollbar-thumb {
+  background: var(--light-text-color);
+  border-radius: 10px;
+}
+
+main.home .tab_content .tab_section .online_friends .online_user {
+  width: 10rem;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  background-color: var(--bg-color);
+  border: 1px solid #e6ebf5;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+main.home .tab_content .tab_section .online_friends .online_user .user_image {
+  width: 5rem;
+  height: 5rem;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+main.home .tab_content .tab_section .online_friends .online_user h3 {
+  font-weight: bolder;
+  margin-top: 2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+main.home .tab_content .tab_section .recent_chats {
+  overflow-y: auto;
+}
+
+/* Style scroll bars */
+main.home .tab_content .tab_section .recent_chats::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* main.home .tab_content .tab_section .online_friends::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
+main.home .tab_content .tab_section .recent_chats::-webkit-scrollbar-thumb {
+  background: var(--light-text-color);
+  border-radius: 10px;
+}
+main.home .tab_content .tab_section .recent_chats .conversions {
+  height: 100%;
+}
+
+main.home .tab_content .tab_section .recent_chats .conversions .chat {
+  padding: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+main.home .tab_content .tab_section .recent_chats .conversions .chat:hover {
+  background-color: var(--color-lavender);
+  border-radius: 10px;
+}
+
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_container
+  .user_image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_container
+  .message {
+  white-space: nowrap;
+  width: 15rem;
+}
+
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_container
+  .message
+  h3 {
+  margin-bottom: -1rem;
+  font-weight: bolder;
+  color: var(--dark-text-color);
+  font-size: 1.6rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_container
+  .message
+  p {
+  color: var(--light-text-color);
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+main.home
+  .tab_content
+  .tab_section
+  .recent_chats
+  .conversions
+  .chat
+  .chat_time {
+  font-size: 1.4rem;
+  font-weight: bolder;
+  color: var(--dark-text-color);
+}
 /********************* END HOME PAGE **************************/
 
 /********************* UTILITY CLASS *************************/
 .hide {
   display: none;
   opacity: 0;
+}
+
+.default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-text-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.current_chat {
+  background-color: var(--color-lavender);
+  border-radius: 10px;
+}
+
+.round_image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
 
 .active {
@@ -369,6 +605,8 @@ main.home .navigation .navigation_extra .avatar {
 /*********************** MEDIA QUERY HOME ******************************/
 @media only screen and (max-width: 1248px) {
   main.home {
+    grid-template-columns: 15rem 15rem 15rem repeat(9, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-template-areas:
       "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
       "TAB TAB TAB CHT CHT CHT CHT CHT CHT CHT CHT CHT"
@@ -426,6 +664,8 @@ main.home .navigation .navigation_extra .avatar {
 
 @media only screen and (max-width: 888px) {
   main.home {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-template-areas:
       "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
       "CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT CHT"
