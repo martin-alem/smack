@@ -359,7 +359,7 @@ main.home .tab_content {
 }
 
 main.home .tab_content .tab_section {
-  width: 100% ;
+  width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: 100%;
@@ -564,11 +564,161 @@ main.home
   font-weight: bolder;
   color: var(--dark-text-color);
 }
+
+main.home .tab_content .tab_group .heading {
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -2rem;
+}
+
+main.home .tab_content .tab_group .heading span {
+  font-size: 3.4rem;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+main.home .tab_content .tab_group .search_form {
+  height: 10rem;
+}
+
+main.home .tab_content .tab_group .group_chats {
+  width: 100%;
+  margin-top: -5rem;
+  overflow-y: auto;
+}
+
+/* Style scroll bars */
+main.home .tab_content .tab_group .group_chats::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* main.home .tab_content .tab_section .online_friends::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
+main.home .tab_content .tab_group .group_chats::-webkit-scrollbar-thumb {
+  background: var(--light-text-color);
+  border-radius: 10px;
+}
+main.home .tab_content .tab_group .group_chats .group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+main.home .tab_content .tab_group .group_chats .group:hover {
+  background-color: var(--color-lavender);
+  border-radius: 10px;
+}
+
+main.home .tab_content .tab_group .group_chats .group .group_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 20rem;
+  white-space: nowrap;
+}
+
+main.home .tab_content .tab_group .group_chats .group .group_image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+main.home .tab_content .tab_group .group_chats .group h3 {
+  font-weight: bolder;
+  color: var(--dark-text-color);
+  font-size: 1.6rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+main.home .tab_content .tab_group .group_chats .group .num_msg {
+  font-size: 1.4rem;
+  font-weight: bolder;
+  color: var(--primary-color);
+}
+
+main.home .tab_content .tab_friends {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 8rem auto;
+}
+
+main.home .tab_content .tab_friends .heading {
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -2rem;
+}
+
+main.home .tab_content .tab_friends .heading h1 {
+  font-size: 2.3rem;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+main.home .tab_content .tab_friends .heading span {
+  font-size: 3.4rem;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+main.home .tab_content .tab_friends .friend_list {
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Style scroll bars */
+main.home .tab_content .tab_friends .friend_list::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* main.home .tab_content .tab_friends .friend_list::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
+main.home .tab_content .tab_friends .friend_list::-webkit-scrollbar-thumb {
+  background: var(--light-text-color);
+  border-radius: 10px;
+}
+
+main.home .tab_content .tab_friends .friend_list .friend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+main.home .tab_content .tab_friends .friend_list .friend h3 {
+  font-weight: bolder;
+  color: var(--dark-text-color);
+  font-size: 1.6rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+main.home .tab_content .tab_friends .friend_list .friend span {
+  font-size: 3rem;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
 /********************* END HOME PAGE **************************/
 
 /********************* UTILITY CLASS *************************/
 .hide {
-  display: none;
+  display: none !important;
   opacity: 0;
 }
 
@@ -585,6 +735,11 @@ main.home
 }
 
 .current_chat {
+  background-color: var(--color-lavender);
+  border-radius: 10px;
+}
+
+.current_group {
   background-color: var(--color-lavender);
   border-radius: 10px;
 }
