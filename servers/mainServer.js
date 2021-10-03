@@ -35,4 +35,8 @@ app.get("/reset_request", (req, res) => {
 app.get("/reset", (req, res) => {
   res.render("reset.ejs");
 });
+
+app.get("/recover", (req, res) => {
+  res.render("recover.ejs");
+});
 export default httpServer;
