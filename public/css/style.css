@@ -714,6 +714,52 @@ main.home .tab_content .tab_friends .friend_list .friend span {
   cursor: pointer;
 }
 
+main.home .tab_content .tab_profile {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 8rem 20rem auto;
+}
+
+main.home .tab_content .tab_profile .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -2rem;
+}
+
+main.home .tab_content .tab_profile .heading h1 {
+  font-size: 2.3rem;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+main.home .tab_content .tab_profile .heading span {
+  font-size: 3rem;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+main.home .tab_content .tab_profile .my_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main.home .tab_content .tab_profile .my_image img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+}
+
+main.home .tab_content .tab_profile .my_image span {
+  color: var(--color-info-text);
+}
+
+main.home .tab_content .tab_profile .about h3 {
+  font-weight: bolder;
+  color: var(--dark-text-color);
+  font-size: 1.6rem;
+}
 /********************* END HOME PAGE **************************/
 
 /********************* UTILITY CLASS *************************/
