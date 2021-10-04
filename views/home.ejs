@@ -279,14 +279,14 @@
           <div class="friend_list">
             <div class="friend">
               <h3>Martin Alemajoh</h3>
-              <span class="material-icons"> more_vert </span>
+              <span data-type="friend_action" class="material-icons"> more_vert </span>
             </div>
           </div>
         </div>
         <div id="profile" class="tab_nav tab_profile hide">
           <div class="heading">
             <h1>My Profile</h1>
-            <span class="material-icons">more_vert</span>
+            <span data-type="profile_action" class="material-icons">more_vert</span>
           </div>
           <div class="my_image">
             <img src="../image/test.jpg" alt="logo" />
@@ -418,13 +418,13 @@
             <span class="material-icons">call</span>
             <span class="material-icons">video_call</span>
             <span class="material-icons">person</span>
-            <span class="material-icons">more_horiz</span>
+            <span data-type="conversion_msg" class="material-icons">more_horiz</span>
           </div>
         </div>
         <div class="chat_area">
           <div class="remote">
             <div class="message_container">
-              <span class="material-icons">more_vert</span>
+              <span data-type="msg_action" data-direction="left" class="material-icons">more_vert</span>
               <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?</div>
               <div class="time">
                 <span class="material-icons">access_time</span>
@@ -438,7 +438,7 @@
           </div>
           <div class="local">
             <div class="message_container">
-              <span class="material-icons">more_vert</span>
+              <span data-type="msg_action" data-direction="right" class="material-icons">more_vert</span>
               <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are </div>
               <div class="time">
                 <span class="material-icons">access_time</span>
@@ -469,6 +469,7 @@
       <div class="profile">Profile</div>
     </main>
 
-    <script src="../js/page_functionality.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="module" src="../js/page_functionality.js"></script>
   </body>
 </html>

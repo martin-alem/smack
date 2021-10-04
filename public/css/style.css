@@ -1025,7 +1025,35 @@ main.home .chat_room .chat_area .local .local_info img {
   height: 4rem;
   border-radius: 50%;
 }
+
 /********************* END HOME PAGE **************************/
+
+/******************** CONTEXT MENU ***************************/
+.context_menu {
+  width: 15rem;
+  background-color: var(--color-lavender);
+  padding: 1rem;
+  color: var(--dark-text-color);
+  position: absolute;
+}
+
+.context_menu .body .item_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-lavender);
+  transition: background-color 0.2s;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.context_menu .body .item_container p {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.context_menu .body .item_container:hover {
+  background-color: var(--color-white);
+}
 
 /********************* UTILITY CLASS *************************/
 .hide {
