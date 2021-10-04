@@ -58,7 +58,7 @@ import ContextMenu from "./ContextMenu.js";
         contextMenu = contextMenu.conversionContextMenu();
       }
     } else {
-      contextMenu.classList.add("hide");
+      contextMenu?.classList.add("hide");
       chatAreaActive = false;
     }
   });
@@ -96,26 +96,52 @@ import ContextMenu from "./ContextMenu.js";
   });
 })();
 
-// modal
+//show chat areas
 (function () {
-  const openModal = document.getElementById("open_add_group_modal");
-  const closeModal = document.getElementById("close_add_group_modal");
-  const groupModal = document.querySelector(".group_modal");
-  const overlay = document.querySelector(".overlay");
-
-  openModal.addEventListener("click", function () {
-    overlay.classList.add("show_modal");
-    groupModal.classList.add("show_modal");
-    overlay.classList.toggle("hide");
-    groupModal.classList.toggle("hide");
+  const recentChatArea = document.querySelector(".conversions");
+  const chatRoom = document.querySelector(".chat_room");
+  const nav = document.querySelector(".navigation");
+  const closeChatRoom = document.querySelector("#close_chat_room");
+  recentChatArea.addEventListener("click", function (event) {
+    const target = event.target;
+    if (target.dataset["type"] === "show_chat") {
+      if (window.innerWidth <= 888) {
+        nav.style.display = "none";
+        chatRoom.style.display = "flex";
+        chatRoom.style.width = "100%";
+      }
+    }
   });
 
-  closeModal.addEventListener("click", function () {
-    overlay.classList.remove("show_modal");
-    groupModal.classList.remove("show_modal");
-    overlay.classList.toggle("hide");
-    groupModal.classList.toggle("hide");
+  closeChatRoom.addEventListener("click", function () {
+    chatRoom.style.display = "none";
+    nav.style.display = "flex";
+    nav.style.alignItems = "center";
+    nav.style.justifyContent = "space-around";
   });
+})();
+
+(function () {
+  {
+    const openModal = document.getElementById("open_add_group_modal");
+    const closeModal = document.getElementById("close_add_group_modal");
+    const groupModal = document.querySelector(".group_modal");
+    const overlay = document.querySelector(".overlay");
+
+    openModal.addEventListener("click", function () {
+      overlay.classList.add("show_modal");
+      groupModal.classList.add("show_modal");
+      overlay.classList.toggle("hide");
+      groupModal.classList.toggle("hide");
+    });
+
+    closeModal.addEventListener("click", function () {
+      overlay.classList.remove("show_modal");
+      groupModal.classList.remove("show_modal");
+      overlay.classList.toggle("hide");
+      groupModal.classList.toggle("hide");
+    });
+  }
 })();
 
 (function () {
@@ -136,5 +162,20 @@ import ContextMenu from "./ContextMenu.js";
     friendModal.classList.remove("show_modal");
     overlay.classList.toggle("hide");
     friendModal.classList.toggle("hide");
+  });
+})();
+
+// handler
+(function () {
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 889) {
+      const chatRoom = document.querySelector(".chat_room");
+      const nav = document.querySelector(".navigation");
+      chatRoom.style.display = "flex";
+      chatRoom.style.width = "100%";
+      nav.style.display = "flex";
+      nav.style.alignItems = "center";
+      nav.style.justifyContent = "space-around";
+    }
   });
 })();

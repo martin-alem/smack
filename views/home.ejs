@@ -88,7 +88,17 @@
           <h1>Recent</h1>
           <div class="recent_chats">
             <div class="conversions">
-              <div class="chat current_chat">
+              <div data-type="show_chat" class="chat current_chat">
+                <div data-type="show_chat" class="chat_container">
+                  <img data-type="show_chat" class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div data-type="show_chat" class="message">
+                    <h3 data-type="show_chat" class="user_name">Martin Alemajoh</h3>
+                    <p data-type="show_chat" class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div data-type="show_chat" class="chat_time">05:36</div>
+              </div>
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -98,7 +108,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -108,7 +118,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -118,7 +128,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -128,7 +138,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -138,7 +148,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -148,17 +158,7 @@
                 </div>
                 <div class="chat_time">05:36</div>
               </div>
-              <div class="chat">
-                <div class="chat_container">
-                  <img class="user_image" src="../image/test.jpg" alt="logo" />
-                  <div class="message">
-                    <h3 class="user_name">Martin Alemajoh</h3>
-                    <p class="last_message">Hey bro did yoy see my message</p>
-                  </div>
-                </div>
-                <div class="chat_time">05:36</div>
-              </div>
-              <div class="chat">
+              <div data-type="show_chat" class="chat">
                 <div class="chat_container">
                   <img class="user_image" src="../image/test.jpg" alt="logo" />
                   <div class="message">
@@ -408,6 +408,7 @@
       <div class="chat_room">
         <div class="header">
           <div class="participant">
+            <span id="close_chat_room" class="material-icons"> chevron_left </span>
             <img src="../image/test.jpg" alt="logo" />
             <div class="name_status">
               <p>Martin Alemajoh</p>
