@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="tab_content">
-            <div id="chats" class="tab_section hide">
+            <div id="chats" class="tab_section">
                 <div class="search_form">
                     <h1>Chats</h1>
                     <form action="/search?q=chats" method="get">
@@ -308,7 +308,7 @@
                     </div>
                 </div>
             </div>
-            <div id="settings" class="tab_settings">
+            <div id="settings" class="tab_settings hide">
                 <div class="heading">
                     <h1>Settings</h1>
                 </div>
@@ -399,7 +399,66 @@
                 </div>
             </div>
         </div>
-        <div class="chat_room">Chat Room</div>
+        <div class="chat_room">
+            <div class="header">
+                <div class="participant">
+                    <img src="../image/test.jpg" alt="logo">
+                    <p>Martin Alemajoh<span class="material-icons">signal_wifi_4_bar</span></p>
+                </div>
+                <div class="actions">
+                    <span class="material-icons">call</span>
+                    <span class="material-icons">video_call</span>
+                    <span class="material-icons">person</span>
+                    <span class="material-icons">more_horiz</span>
+                </div>
+            </div>
+            <div class="chat_area">
+                <div class="remote">
+                    <div class="message_container">
+                        <span class="material-icons">more_vert</span>
+                        <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are
+                            you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin
+                            How are you?</div>
+                        <div class="time">
+                            <span class="material-icons">access_time</span>
+                            <p>6:00</p>
+                        </div>
+                    </div>
+                    <div class="remote_info">
+                        <img src="../image/test.jpg" alt="logo">
+                        <p class="name">Martin Alemajoh</p>
+                    </div>
+                </div>
+                <div class="local">
+                    <div class="message_container">
+                        <span class="material-icons">more_vert</span>
+                        <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are
+                        </div>
+                        <div class="time">
+                            <span class="material-icons">access_time</span>
+                            <p>6:00</p>
+                        </div>
+                    </div>
+                    <div class="local_info">
+                        <img src="../image/test.jpg" alt="logo">
+                        <p class="name">Martin Alemajoh</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <div class="uploads"></div>
+                <div class="messaging">
+                    <textarea name="message" id="message" placeholder="Message Martin Alemajoh"></textarea>
+                    <div class="actions">
+                        <span class="material-icons">emoji_emotions</span>
+                        <span class="material-icons">mic</span>
+                        <span class="material-icons">attach_file</span>
+                        <span class="material-icons">add_a_photo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="audio_room">Audio Room</div>
         <div class="video_room">Video Room</div>
         <div class="profile">Profile</div>
