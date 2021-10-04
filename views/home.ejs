@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Martin Alemajoh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Martin Alemajoh" />
     <title>Home | Martin Alemajoh</title>
 
-    <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon" />
 
     <!--Stylesheet-->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <!--Font Awesome-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
 
-<body>
+  <body>
     <main class="home">
-        <div class="navigation">
-            <div class="navigation_logo">
-                <img src="../image/logo.svg" alt="logo">
-            </div>
-            <div class="navigation_tabs">
-                <div data-tooltip="Chats"><span class="material-icons active">textsms</span></div>
-                <div data-tooltip="Groups"><span class="material-icons">groups</span></div>
-                <div data-tooltip="Friends"><span class="material-icons">people</span></div>
-                <div data-tooltip="Profile"><span class="material-icons">person</span></div>
-                <div data-tooltip="Settings"><span class="material-icons">settings</span></div>
-            </div>
-            <div class="navigation_extra">
-                <div data-tooltip="Dark/Light"><span class="material-icons">dark_mode</span></div>
-                <div class="avatar">A</div>
-            </div>
+      <div class="navigation">
+        <div class="navigation_logo">
+          <img src="../image/logo.svg" alt="logo" />
         </div>
-        <div class="tab_content">
-            <div id="chats" class="tab_section">
-                <div class="search_form">
-                    <h1>Chats</h1>
-                    <form action="/search?q=chats" method="get">
-                        <div class="search_input">
-                            <input type="search" name="chats" id="chats" placeholder="Search for messages">
-                            <span class="material-icons active">search</span>
-                        </div>
-                    </form>
-                </div>
-                <div class="online_friends">
-                    <div class="default">
-                        <span class="material-icons">person_off</span>
-                        <i>Online friends will appear here</i>
-                    </div>
-                    <!-- <div class="online_user">
+        <div class="navigation_tabs">
+          <div class="tab_btn" data-tooltip="Chats" data-position="0">
+            <span data-position="0" class="material-icons active">textsms</span>
+          </div>
+          <div class="tab_btn" data-tooltip="Groups" data-position="1">
+            <span data-position="1" class="material-icons">groups</span>
+          </div>
+          <div class="tab_btn" data-tooltip="Friends" data-position="2">
+            <span data-position="2" class="material-icons">people</span>
+          </div>
+          <div class="tab_btn" data-tooltip="Profile" data-position="3">
+            <span data-position="3" class="material-icons">person</span>
+          </div>
+          <div class="tab_btn" data-tooltip="Settings" data-position="4">
+            <span data-position="4" class="material-icons">settings</span>
+          </div>
+        </div>
+        <div class="navigation_extra">
+          <div data-tooltip="Dark/Light"><span class="material-icons">dark_mode</span></div>
+          <div class="avatar">A</div>
+        </div>
+      </div>
+      <div class="tab_content">
+        <div id="chats" class="tab_nav tab_section">
+          <div class="search_form">
+            <h1>Chats</h1>
+            <form action="/search?q=chats" method="get">
+              <div class="search_input">
+                <input type="search" name="chats" id="chats" placeholder="Search for messages" />
+                <span class="material-icons active">search</span>
+              </div>
+            </form>
+          </div>
+          <div class="online_friends">
+            <div class="default">
+              <span class="material-icons">person_off</span>
+              <i>Online friends will appear here</i>
+            </div>
+            <!-- <div class="online_user">
                         <div class="user_image"><img class="round_image" src="../image/test.jpg"></div>
                         <h3>Martin Alemajoh Martin Alemajoh Martin Alemajoh</h3>
                     </div>
@@ -75,397 +84,391 @@
                         <div class="user_image">A</div>
                         <h3>Martin Alemajoh</h3>
                     </div> -->
+          </div>
+          <h1>Recent</h1>
+          <div class="recent_chats">
+            <div class="conversions">
+              <div class="chat current_chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
                 </div>
-                <h1>Recent</h1>
-                <div class="recent_chats">
-
-                    <div class="conversions">
-                        <div class="chat current_chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                        <div class="chat">
-                            <div class="chat_container">
-                                <img class="user_image" src="../image/test.jpg" alt="logo">
-                                <div class="message">
-                                    <h3 class="user_name">Martin Alemajoh</h3>
-                                    <p class="last_message">Hey bro did yoy see my message</p>
-                                </div>
-                            </div>
-                            <div class="chat_time">05:36</div>
-                        </div>
-                    </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
                 </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
+              <div class="chat">
+                <div class="chat_container">
+                  <img class="user_image" src="../image/test.jpg" alt="logo" />
+                  <div class="message">
+                    <h3 class="user_name">Martin Alemajoh</h3>
+                    <p class="last_message">Hey bro did yoy see my message</p>
+                  </div>
+                </div>
+                <div class="chat_time">05:36</div>
+              </div>
             </div>
-            <div id="groups" class="tab_section tab_group hide">
-                <div class="heading">
-                    <h1>Groups</h1>
-                    <span class="material-icons">groups</span>
-                </div>
-                <div class="search_form">
-                    <form action="/search?q=group" method="get">
-                        <div class="search_input">
-                            <input type="search" name="group" id="group" placeholder="Search for groups">
-                            <span class="material-icons active">search</span>
-                        </div>
-                    </form>
-                </div>
-                <div class="group_chats">
-                    <div class="group current_group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                    <div class="group">
-                        <div class="group_container">
-                            <img class="group_image" src="../image/test.jpg" alt="logo">
-                            <h3>Group Name</h3>
-                        </div>
-                        <div class="num_msg">23</div>
-                    </div>
-                </div>
-            </div>
-            <div id="friends" class="tab_friends hide">
-                <div class="heading">
-                    <h1>Friends</h1>
-                    <span class="material-icons">person_add</span>
-                </div>
-                <div class="friend_list">
-                    <div class="friend">
-                        <h3>Martin Alemajoh</h3>
-                        <span class="material-icons">
-                            more_vert
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div id="profile" class="tab_profile hide">
-                <div class="heading">
-                    <h1>My Profile</h1>
-                    <span class="material-icons">more_vert</span>
-                </div>
-                <div class="my_image">
-                    <img src="../image/test.jpg" alt="logo">
-                    <h1>Martin Alemajoh</h1>
-                    <span class="material-icons">signal_wifi_4_bar</span>
-                </div>
-                <div class="about">
-                    <h3>About me</h3>
-                    <hr />
-                    <div class="name">
-                        <p>First Name</p>
-                        <h3>Martin</h3>
-                    </div>
-                    <div class="name">
-                        <p>Last Name</p>
-                        <h3>Alemajoh</h3>
-                    </div>
-                    <div class="email">
-                        <p>Email Address</p>
-                        <h3>alemajohmartin@gmail.com</h3>
-                    </div>
-                    <div class="memeber">
-                        <p>Member Since</p>
-                        <h3>October 1, 2021</h3>
-                    </div>
-                </div>
-            </div>
-            <div id="settings" class="tab_settings hide">
-                <div class="heading">
-                    <h1>Settings</h1>
-                </div>
-                <div class="my_image">
-                    <img src="../image/test.jpg" alt="logo">
-                    <h1>Martin Alemajoh</h1>
-                    <span class="material-icons">add_a_photo</span>
-                </div>
-                <div class="about">
-                    <h3>Personal Information</h3>
-                    <hr />
-                    <div class="name">
-                        <p>First Name</p>
-                        <form action="/update" method="post">
-                            <input type="text" name="first_name" id="first_name" value="Martin">
-                        </form>
-                    </div>
-                    <div class="name">
-                        <p>Last Name</p>
-                        <form>
-                            <input type="text" value="Alemajoh" disabled>
-                        </form>
-                    </div>
-                    <div class="email">
-                        <p>Email Address</p>
-                        <form action="/update" method="post">
-                            <input type="text" name="email" id="email" value="alemajohmartin@gmail.com">
-                        </form>
-                    </div>
-                    <div class="phone">
-                        <p>Phone Number</p>
-                        <form>
-                            <input type="text" value="614-284-5041" disabled>
-                        </form>
-                    </div>
-                </div>
-                <div class="privacy">
-                    <div class="profile_picture">
-                        <p>Profile picture</p>
-                        <select name="show_profile_pic" id="show_profile_pic">
-                            <option value="yes">Public</option>
-                            <option value="no">Private</option>
-                        </select>
-                    </div>
-                    <div class="last_seen">
-                        <p>Last seen</p>
-                        <select name="show_last_seen" id="show_last_seen">
-                            <option value="yes">Public</option>
-                            <option value="no">Private</option>
-                        </select>
-                    </div>
-                    <div class="status">
-                        <p>Status</p>
-                        <select name="show_status" id="show_status">
-                            <option value="yes">Public</option>
-                            <option value="no">Private</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="security">
-                    <div class="two_factor_auth">
-                        <p>Enable Two Factor Authentication</p>
-                        <select name="two_factor_auth" id="two_factor_auth">
-                            <option value="no">Disabled</option>
-                            <option value="yes">Enabled</option>
-                        </select>
-                    </div>
-                    <div class="monitor">
-                        <p>Enable Account Monitoring</p>
-                        <select name="monitor_account" id="monitor_account">
-                            <option value="no">Disabled</option>
-                            <option value="yes">Enabled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="more">
-                    <div class="developer">
-                        <p>Developer API</p>
-                        <a href="">API Access</a>
-                    </div>
-                    <div class="mode">
-                        <p>Light and Dark Mode</p>
-                        <select name="mode" id="mode">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="chat_room">
-            <div class="header">
-                <div class="participant">
-                    <img src="../image/test.jpg" alt="logo">
-                    <div class="name_status">
-                        <p>Martin Alemajoh</p>
-                        <span class="material-icons">fiber_manual_record</span>
-                    </div>
-                </div>
-                <div class="actions">
-                    <span class="material-icons">call</span>
-                    <span class="material-icons">video_call</span>
-                    <span class="material-icons">person</span>
-                    <span class="material-icons">more_horiz</span>
-                </div>
+        <div id="groups" class="tab_nav tab_section tab_group hide">
+          <div class="heading">
+            <h1>Groups</h1>
+            <span class="material-icons">groups</span>
+          </div>
+          <div class="search_form">
+            <form action="/search?q=group" method="get">
+              <div class="search_input">
+                <input type="search" name="group" id="group" placeholder="Search for groups" />
+                <span class="material-icons active">search</span>
+              </div>
+            </form>
+          </div>
+          <div class="group_chats">
+            <div class="group current_group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
             </div>
-            <div class="chat_area">
-                <div class="remote">
-                    <div class="message_container">
-                        <span class="material-icons">more_vert</span>
-                        <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are
-                            you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin
-                            How are you?</div>
-                        <div class="time">
-                            <span class="material-icons">access_time</span>
-                            <p>6:00</p>
-                        </div>
-                    </div>
-                    <div class="remote_info">
-                        <img src="../image/test.jpg" alt="logo">
-                        <p class="name">Martin Alemajoh</p>
-                    </div>
-                </div>
-                <div class="local">
-                    <div class="message_container">
-                        <span class="material-icons">more_vert</span>
-                        <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are
-                        </div>
-                        <div class="time">
-                            <span class="material-icons">access_time</span>
-                            <p>6:00</p>
-                        </div>
-                    </div>
-                    <div class="local_info">
-                        <img src="../image/test.jpg" alt="logo">
-                        <p class="name">Martin Alemajoh</p>
-                    </div>
-                </div>
-
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
             </div>
-            <div class="footer">
-                <div class="uploads"></div>
-                <div class="messaging">
-                    <textarea name="message" id="message" placeholder="Message Martin Alemajoh"></textarea>
-                    <div class="actions">
-                        <span class="material-icons">emoji_emotions</span>
-                        <span class="material-icons">mic</span>
-                        <span class="material-icons">attach_file</span>
-                        <span class="material-icons">add_a_photo</span>
-                    </div>
-                </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
             </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+            <div class="group">
+              <div class="group_container">
+                <img class="group_image" src="../image/test.jpg" alt="logo" />
+                <h3>Group Name</h3>
+              </div>
+              <div class="num_msg">23</div>
+            </div>
+          </div>
         </div>
-        <div class="audio_room">Audio Room</div>
-        <div class="video_room">Video Room</div>
-        <div class="profile">Profile</div>
+        <div id="friends" class="tab_nav tab_friends hide">
+          <div class="heading">
+            <h1>Friends</h1>
+            <span class="material-icons">person_add</span>
+          </div>
+          <div class="friend_list">
+            <div class="friend">
+              <h3>Martin Alemajoh</h3>
+              <span class="material-icons"> more_vert </span>
+            </div>
+          </div>
+        </div>
+        <div id="profile" class="tab_nav tab_profile hide">
+          <div class="heading">
+            <h1>My Profile</h1>
+            <span class="material-icons">more_vert</span>
+          </div>
+          <div class="my_image">
+            <img src="../image/test.jpg" alt="logo" />
+            <h1>Martin Alemajoh</h1>
+            <span class="material-icons">fiber_manual_record</span>
+          </div>
+          <div class="about">
+            <h3>About me</h3>
+            <hr />
+            <div class="name">
+              <p>First Name</p>
+              <h3>Martin</h3>
+            </div>
+            <div class="name">
+              <p>Last Name</p>
+              <h3>Alemajoh</h3>
+            </div>
+            <div class="email">
+              <p>Email Address</p>
+              <h3>alemajohmartin@gmail.com</h3>
+            </div>
+            <div class="memeber">
+              <p>Member Since</p>
+              <h3>October 1, 2021</h3>
+            </div>
+          </div>
+        </div>
+        <div id="settings" class="tab_nav tab_settings hide">
+          <div class="heading">
+            <h1>Settings</h1>
+          </div>
+          <div class="my_image">
+            <img src="../image/test.jpg" alt="logo" />
+            <h1>Martin Alemajoh</h1>
+            <span class="material-icons">add_a_photo</span>
+          </div>
+          <div class="about">
+            <h3>Personal Information</h3>
+            <hr />
+            <div class="name">
+              <p>First Name</p>
+              <form action="/update" method="post">
+                <input type="text" name="first_name" id="first_name" value="Martin" />
+              </form>
+            </div>
+            <div class="name">
+              <p>Last Name</p>
+              <form>
+                <input type="text" value="Alemajoh" disabled />
+              </form>
+            </div>
+            <div class="email">
+              <p>Email Address</p>
+              <form action="/update" method="post">
+                <input type="text" name="email" id="email" value="alemajohmartin@gmail.com" />
+              </form>
+            </div>
+            <div class="phone">
+              <p>Phone Number</p>
+              <form>
+                <input type="text" value="614-284-5041" disabled />
+              </form>
+            </div>
+          </div>
+          <div class="privacy">
+            <div class="profile_picture">
+              <p>Profile picture</p>
+              <select name="show_profile_pic" id="show_profile_pic">
+                <option value="yes">Public</option>
+                <option value="no">Private</option>
+              </select>
+            </div>
+            <div class="last_seen">
+              <p>Last seen</p>
+              <select name="show_last_seen" id="show_last_seen">
+                <option value="yes">Public</option>
+                <option value="no">Private</option>
+              </select>
+            </div>
+            <div class="status">
+              <p>Status</p>
+              <select name="show_status" id="show_status">
+                <option value="yes">Public</option>
+                <option value="no">Private</option>
+              </select>
+            </div>
+          </div>
+          <div class="security">
+            <div class="two_factor_auth">
+              <p>Enable Two Factor Authentication</p>
+              <select name="two_factor_auth" id="two_factor_auth">
+                <option value="no">Disabled</option>
+                <option value="yes">Enabled</option>
+              </select>
+            </div>
+            <div class="monitor">
+              <p>Enable Account Monitoring</p>
+              <select name="monitor_account" id="monitor_account">
+                <option value="no">Disabled</option>
+                <option value="yes">Enabled</option>
+              </select>
+            </div>
+          </div>
+          <div class="more">
+            <div class="developer">
+              <p>Developer API</p>
+              <a href="">API Access</a>
+            </div>
+            <div class="mode">
+              <p>Light and Dark Mode</p>
+              <select name="mode" id="mode">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat_room">
+        <div class="header">
+          <div class="participant">
+            <img src="../image/test.jpg" alt="logo" />
+            <div class="name_status">
+              <p>Martin Alemajoh</p>
+              <span class="material-icons">fiber_manual_record</span>
+            </div>
+          </div>
+          <div class="actions">
+            <span class="material-icons">call</span>
+            <span class="material-icons">video_call</span>
+            <span class="material-icons">person</span>
+            <span class="material-icons">more_horiz</span>
+          </div>
+        </div>
+        <div class="chat_area">
+          <div class="remote">
+            <div class="message_container">
+              <span class="material-icons">more_vert</span>
+              <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?</div>
+              <div class="time">
+                <span class="material-icons">access_time</span>
+                <p>6:00</p>
+              </div>
+            </div>
+            <div class="remote_info">
+              <img src="../image/test.jpg" alt="logo" />
+              <p class="name">Martin Alemajoh</p>
+            </div>
+          </div>
+          <div class="local">
+            <div class="message_container">
+              <span class="material-icons">more_vert</span>
+              <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are </div>
+              <div class="time">
+                <span class="material-icons">access_time</span>
+                <p>6:00</p>
+              </div>
+            </div>
+            <div class="local_info">
+              <img src="../image/test.jpg" alt="logo" />
+              <p class="name">Martin Alemajoh</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="uploads"></div>
+          <div class="messaging">
+            <textarea name="message" id="message" placeholder="Message Martin Alemajoh"></textarea>
+            <div class="actions">
+              <span class="material-icons">emoji_emotions</span>
+              <span class="material-icons">mic</span>
+              <span class="material-icons">attach_file</span>
+              <span class="material-icons">add_a_photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="audio_room">Audio Room</div>
+      <div class="video_room">Video Room</div>
+      <div class="profile">Profile</div>
     </main>
-</body>
 
+    <script src="../js/page_functionality.js"></script>
+  </body>
 </html>
