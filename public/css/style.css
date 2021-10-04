@@ -1177,6 +1177,27 @@ main.home .chat_room .chat_area .local .local_info img {
 .active {
   color: var(--primary-color) !important;
 }
+
+.show_modal {
+  animation-name: openModal;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes openModal {
+  0% {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
 /********************* END UTILITY **************************/
 
 /******************* MEDIA QUERY **************************/

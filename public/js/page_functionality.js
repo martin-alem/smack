@@ -95,3 +95,25 @@ import ContextMenu from "./ContextMenu.js";
     }
   });
 })();
+
+// modal
+(function () {
+  const openModal = document.getElementById("open_add_group_modal");
+  const closeModal = document.getElementById("close_add_group_modal");
+  const groupModal = document.querySelector(".group_modal");
+  const overlay = document.querySelector(".overlay");
+
+  openModal.addEventListener("click", function () {
+    overlay.classList.add("show_modal");
+    groupModal.classList.add("show_modal");
+    overlay.classList.toggle("hide");
+    groupModal.classList.toggle("hide");
+  });
+
+  closeModal.addEventListener("click", function () {
+    overlay.classList.remove("show_modal");
+    groupModal.classList.remove("show_modal");
+    overlay.classList.toggle("hide");
+    groupModal.classList.toggle("hide");
+  });
+})();
