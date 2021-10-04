@@ -117,3 +117,24 @@ import ContextMenu from "./ContextMenu.js";
     groupModal.classList.toggle("hide");
   });
 })();
+
+(function () {
+  const openModal = document.getElementById("open_add_friend_modal");
+  const closeModal = document.getElementById("close_add_friend_modal");
+  const friendModal = document.querySelector(".friend_modal");
+  const overlay = document.querySelector(".overlay");
+
+  openModal.addEventListener("click", function () {
+    overlay.classList.add("show_modal");
+    friendModal.classList.add("show_modal");
+    overlay.classList.toggle("hide");
+    friendModal.classList.toggle("hide");
+  });
+
+  closeModal.addEventListener("click", function () {
+    overlay.classList.remove("show_modal");
+    friendModal.classList.remove("show_modal");
+    overlay.classList.toggle("hide");
+    friendModal.classList.toggle("hide");
+  });
+})();

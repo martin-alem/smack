@@ -1036,7 +1036,7 @@ main.home .chat_room .chat_area .local .local_info img {
 }
 
 /********************* Group Modal **************************/
-.group_modal {
+.modal {
   width: 40rem;
   background-color: var(--color-white);
   padding: 2rem;
@@ -1048,33 +1048,33 @@ main.home .chat_room .chat_area .local .local_info img {
   z-index: 15;
 }
 
-.group_modal .header {
+.modal .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--text-color);
 }
 
-.group_modal .header span {
+.modal .header span {
   cursor: pointer;
 }
-.group_modal .body {
+.modal .body {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.group_modal .body .add_group_form {
+.modal .body .add_group_form {
   margin-top: 2rem;
 }
 
-.group_modal .body .add_group_form label {
+.modal .body .add_form label {
   font-size: 1.6rem;
   font-weight: bolder;
   color: var(--text-color);
 }
 
-.group_modal .body .members {
+.modal .body .members {
   margin: 1.5rem;
   height: 10rem;
   overflow-y: auto;
@@ -1089,12 +1089,12 @@ main.home .chat_room .chat_area .local .local_info img {
   font-size: 1.3rem;
 }
 
-.group_modal .footer {
+.modal .footer {
   display: flex;
   justify-content: flex-end;
 }
 
-.group_modal .footer .btn {
+.modal .footer .btn {
   padding: 1.5rem 2rem;
   outline: none;
   background-color: var(--primary-color);
@@ -1105,7 +1105,7 @@ main.home .chat_room .chat_area .local .local_info img {
   margin-top: 2rem;
   transition: background-color 0.5s;
 }
-.group_modal .footer .btn:hover {
+.modal .footer .btn:hover {
   background-color: var(--primary-dark-color);
 }
 
@@ -1330,7 +1330,7 @@ main.home .chat_room .chat_area .local .local_info img {
     opacity: 0;
   }
 
-  .group_modal {
+  .modal {
     width: 30rem;
     background-color: var(--color-white);
     padding: 2rem;
