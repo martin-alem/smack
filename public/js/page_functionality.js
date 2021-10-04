@@ -26,8 +26,8 @@ import ContextMenu from "./ContextMenu.js";
     if (tab["position"]) {
       const tabPosition = parseInt(tab["position"], 10);
       if (currentTabButtonPosition !== tabPosition) {
-        tabButtons[currentTabButtonPosition].firstElementChild ? tabButtons[currentTabButtonPosition].firstElementChild.classList.toggle("chatAreaActive") : tabButtons[currentTabButtonPosition].classList.toggle("chatAreaActive");
-        tabButtons[tabPosition].firstElementChild.classList.toggle("chatAreaActive");
+        tabButtons[currentTabButtonPosition].firstElementChild ? tabButtons[currentTabButtonPosition].firstElementChild.classList.toggle("active") : tabButtons[currentTabButtonPosition].classList.toggle("active");
+        tabButtons[tabPosition].firstElementChild.classList.toggle("active");
         tabContents[currentTabContentPosition].classList.toggle("hide");
         tabContents[tabPosition].classList.toggle("hide");
         currentTabButtonPosition = tabPosition;

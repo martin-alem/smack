@@ -174,7 +174,7 @@
         <div id="groups" class="tab_nav tab_section tab_group hide">
           <div class="heading">
             <h1>Groups</h1>
-            <span class="material-icons">groups</span>
+            <span id="open_add_group_modal" class="material-icons">group_add</span>
           </div>
           <div class="search_form">
             <form action="/search?q=group" method="get">
@@ -468,6 +468,47 @@
       <div class="video_room">Video Room</div>
       <div class="profile">Profile</div>
     </main>
+
+    <div class="overlay hide"></div>
+
+    <!-- Group Modal-->
+    <div class="modal group_modal hide">
+      <div class="header">
+        <h1>Create New Group</h1>
+        <span id="close_add_group_modal" class="material-icons">close</span>
+      </div>
+      <div class="body">
+        <span class="error hide">invalid phone or password</span>
+        <form action="/add_group" method="post" class="add_group_form">
+          <div class="add_group">
+            <label for="name">Group Name</label>
+            <input type="text" name="name" id="name" placeholder="General Assembly" />
+          </div>
+          <div class="members">
+            <label>Group Members</label>
+            <div class="member">
+              <input type="checkbox" name="member" id="member" />
+              <h3>Martin Alemajoh</h3>
+            </div>
+            <div class="member">
+              <input type="checkbox" name="member" id="member" />
+              <h3>Martin Alemajoh</h3>
+            </div>
+            <div class="member">
+              <input type="checkbox" name="member" id="member" />
+              <h3>Martin Alemajoh</h3>
+            </div>
+          </div>
+          <div class="group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <button class="btn btn-primary">Create Group</button>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="module" src="../js/page_functionality.js"></script>

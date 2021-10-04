@@ -115,26 +115,6 @@ main.smack .smack_container #smack_form .fa-eye-slash {
   cursor: pointer;
 }
 
-main.smack .smack_container .error {
-  background-color: var(--color-error);
-  border-radius: 4px;
-  padding: 1rem;
-  text-align: center;
-  color: var(--color-white);
-  font-size: 1.6rem;
-  text-transform: capitalize;
-}
-
-main.smack .smack_container .info {
-  background-color: var(--color-info-bg);
-  border-radius: 4px;
-  padding: 1rem;
-  text-align: center;
-  color: var(--color-info-text);
-  font-size: 1.6rem;
-  text-transform: capitalize;
-}
-
 main.smack .smack_container #smack_form .smack_form_more {
   display: flex;
   justify-content: space-between;
@@ -1055,10 +1035,115 @@ main.home .chat_room .chat_area .local .local_info img {
   background-color: var(--color-white);
 }
 
+/********************* Group Modal **************************/
+.group_modal {
+  width: 40rem;
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.group_modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.group_modal .header span {
+  cursor: pointer;
+}
+.group_modal .body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.group_modal .body .add_group_form {
+  margin-top: 2rem;
+}
+
+.group_modal .body .add_group_form label {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: var(--text-color);
+}
+
+.group_modal .body .members {
+  margin: 1.5rem;
+  height: 10rem;
+  overflow-y: auto;
+}
+
+.group_modal .body .members .member {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  color: var(--dark-text-color);
+  font-size: 1.3rem;
+}
+
+.group_modal .footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.group_modal .footer .btn {
+  padding: 1.5rem 2rem;
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.5s;
+}
+.group_modal .footer .btn:hover {
+  background-color: var(--primary-dark-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  transition: all 0.4s;
+}
+
 /********************* UTILITY CLASS *************************/
 .hide {
   display: none !important;
   opacity: 0;
+}
+
+.error {
+  background-color: var(--color-error);
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-white);
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.info {
+  background-color: var(--color-info-bg);
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-info-text);
+  font-size: 1.6rem;
+  text-transform: capitalize;
 }
 
 .default {
@@ -1222,6 +1307,17 @@ main.home .chat_room .chat_area .local .local_info img {
   main.home .chat_room .header .participant p {
     display: none;
     opacity: 0;
+  }
+
+  .group_modal {
+    width: 30rem;
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
