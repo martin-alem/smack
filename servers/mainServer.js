@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import cookieParser from "cookie-parser";
 import favicon from "serve-favicon";
 import Server from "./Server.js";
 import path from "path";
@@ -21,6 +22,7 @@ const options = {};
 const httpServer = new Server("http", options, app);
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(favicon(path.join(__dirname, "../public", "/image/favicon-32x32.png")));
 app.use(favicon(path.join(__dirname, "../public", "/image/favicon-16x16.png")));
 app.use(express.static(path.join(__dirname, "../public")));

@@ -19,6 +19,8 @@ async function registerUser(req, res, next) {
 
     const userToken = activeUser.userId.toString("hex");
     const userSUID = signCookie(userToken);
+    //delete user_phone cookie
+    res.clearCookie("_user_phone");
     res.cookie("_user_uid", userSUID, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
     res.cookie("_user_token", userToken, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
     res.redirect(301, "/view/home");

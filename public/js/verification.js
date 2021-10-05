@@ -16,7 +16,7 @@ const validation = (function () {
 })();
 
 const getPhoneNumber = (function () {
-  const phone = document.cookie.split(";")[2].split("=")[1];
+  const phone = document.cookie.split("=")[1] || "";
   return phone;
 })();
 
@@ -79,19 +79,19 @@ const getPhoneNumber = (function () {
     resend.textContent = "Please wait...";
     submitForm(resource, method, body)
       .then((response) => {
-          resend.textContent = "Request another here";
-          response
-            .json()
-            .then((data) => {
-              if (data["status"] === "fail") {
-                showError(data["message"]);
-              } else {
-                showError(data["message"]);
-              }
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+        resend.textContent = "Request another here";
+        response
+          .json()
+          .then((data) => {
+            if (data["status"] === "fail") {
+              showError(data["message"]);
+            } else {
+              showError(data["message"]);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       })
       .catch((error) => {
         console.error(error);
