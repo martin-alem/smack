@@ -1,10 +1,13 @@
 import express from "express";
 import signupController from "./../controllers/signupController.js";
 import blacklistMiddleware from "./../middleware/blacklistMiddleware.js";
+import { lastNameExist, phoneExist } from "./../middleware/existingMiddleware.js";
 
 const userRouter = express.Router();
 
 userRouter.use(blacklistMiddleware);
+userRouter.use(phoneExist);
+userRouter.use(lastNameExist);
 
 userRouter.route("/signup").post(signupController);
 

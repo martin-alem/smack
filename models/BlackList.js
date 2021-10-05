@@ -11,7 +11,8 @@ const BlackListScheme = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: true,
+    required: false,
+    default: new Date(),
   },
 });
 

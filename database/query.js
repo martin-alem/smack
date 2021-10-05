@@ -1,8 +1,7 @@
-import BlackList from "./../models/BlackList.js";
 import Logger from "./../utils/Logger.js";
 
-function findOne(key, value) {
-  BlackList.findOne({ [key]: value }, (error, document) => {
+function findOne(model, key, value) {
+  model.findOne({ [key]: value }, (error, document) => {
     if (error) {
       Logger.log("Error", error, import.meta.url);
     } else {
@@ -11,4 +10,14 @@ function findOne(key, value) {
   });
 }
 
-export { findOne };
+function insertOne(model, data) {
+  model.create(data, (error, document) => {
+    if (error) {
+      Logger.log("Error", error, import.meta.url);
+    } else {
+      return document;
+    }
+  });
+}
+
+export { findOne, insertOne };
