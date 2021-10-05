@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Martin Alemajoh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Martin Alemajoh" />
     <title>Smack | Verify Phone</title>
 
-    <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon" />
 
     <!--Stylesheet-->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <!--Font Awesome-->
     <script defer src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="smack">
-        <div class="header">
-            <img src="../image/logo.svg" alt="logo">
-            <h1>Verify you phone</h1>
-            <p>We just want to make sure it's you</p>
-        </div>
-        <div class="smack_container">
-            <span class="error hide">invalid phone or password invalid phone or password invalid phone or
-                password</span>
-            <form action="/verify" method="post" id="smack_form">
-                <div class="smack_form_code">
-                    <label for="code">Verification Code</label>
-                    <input type="text" name="code" id="code">
-                    <i class="fas fa-qrcode"></i>
-                </div>
-                <button class="btn btn-primary" type="submit">Verify phone</button>
-            </form>
-        </div>
-        <div class="footer">
-            <p>Didn't get the code? <a href="/request_new_code">Request another here</a></p>
-        </div>
+      <div class="header">
+        <img src="../image/logo.svg" alt="logo" />
+        <h1>Verify you phone</h1>
+        <p>We just want to make sure it's you</p>
+      </div>
+      <div class="smack_container">
+        <span class="error hide_error">invalid phone or password invalid phone or password invalid phone or password</span>
+        <form action="/verify" method="post" id="smack_form">
+          <div class="smack_form_code">
+            <label for="code">Verification Code</label>
+            <input type="text" name="code" id="code" />
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <button id="submit_btn" class="btn btn-primary" type="submit">Verify phone</button>
+        </form>
+      </div>
+      <div class="footer">
+        <p>Didn't get the code? <a href="/request_new_code">Request another here</a></p>
+      </div>
     </main>
-</body>
-
+    <script src="../js/verification.js" type="module"></script>
+  </body>
 </html>
