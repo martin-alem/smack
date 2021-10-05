@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const RegistrationScheme = new mongoose.Schema({
+const RegistrationSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -23,6 +23,10 @@ const RegistrationScheme = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  },
   password: {
     type: String,
     required: true,
@@ -32,13 +36,13 @@ const RegistrationScheme = new mongoose.Schema({
     required: false,
     default: null,
   },
-  data: {
+  date: {
     type: Date,
     required: false,
     default: new Date(),
   },
 });
 
-const Registration = mongoose.model("Registration", RegistrationScheme);
+const Registration = mongoose.model("Registration", RegistrationSchema);
 
 export default Registration;

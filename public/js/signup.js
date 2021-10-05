@@ -2,7 +2,7 @@ import submitForm from "./agent.js";
 
 const validation = (function () {
   function validateName(name) {
-    return name !== "" && name.length >= 5 && name.length <= 20;
+    return name !== "" && name.length >= 2 && name.length <= 20;
   }
 
   function validatePhone(phone) {
