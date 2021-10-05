@@ -4,7 +4,8 @@ import Registration from "./../models/Registration.js";
 import Verification from "./../models/Verification.js";
 import User from "./../models/User.js";
 import LoginUser from "./../models/Login.js";
-import { insertOne, findOne, findAndUpdate } from "./../database/query.js";
+import { insertOne, findAndUpdate } from "./../database/query.js";
+import { signCookie } from "./../utils/utils.js";
 
 async function registerUser(req, res, next) {
   try {
@@ -15,7 +16,12 @@ async function registerUser(req, res, next) {
     const newRegisteredUser = await insertOne(User, newUser);
     const loginUser = { userId: newRegisteredUser._id, phone: newRegisteredUser.phone, password: registeredUser.password, status: newRegisteredUser.status, loginAttempts: 0, date: Date.now().toString() };
     const activeUser = await insertOne(LoginUser, loginUser);
-    next();
+
+    const userToken = activeUser.userId.toString("hex");
+    const userSUID = signCookie(userToken);
+    res.cookie("_user_uid", userSUID, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
+    res.cookie("_user_token", userToken, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
+    res.redirect(301, "/view/home");
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);
     next(new Errorhandler("An error occurred on our server", 500));

@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema({
     required: false,
     default: null,
   },
-  data: {
+  date: {
     type: Date,
     required: false,
     default: new Date(),

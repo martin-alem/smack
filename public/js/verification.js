@@ -16,7 +16,7 @@ const validation = (function () {
 })();
 
 const getPhoneNumber = (function () {
-  const phone = document.cookie.split("=")[1]?.toString() || "";
+  const phone = document.cookie.split(";")[0].split("=")[1];
   return phone;
 })();
 

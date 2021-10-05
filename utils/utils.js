@@ -1,4 +1,10 @@
 import { createHash } from "crypto";
+import crypto from "crypto";
+import FileReadWrite from "./FileReadWrite.js";
+import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export function getFormattedDate() {
   const date = new Date();
@@ -17,6 +23,23 @@ export function getCode(number) {
   }
 
   return code;
+}
+
+export function signCookie(rawCookie) {
+  const sign = crypto.createSign("SHA256");
+  sign.update(rawCookie);
+  sign.end();
+  const privateKey = JSON.parse(FileReadWrite.readFromFileSync(path.join(__dirname, "../key", "/keys.json"), "r").toString())[0]["sign_and_verify"]["private"];
+  const signature = sign.sign(privateKey);
+  return signature;
+}
+
+export function verifyCookie(cookie, signature) {
+  const verify = crypto.createVerify("SHA256");
+  verify.update(cookie);
+  verify.end();
+  const publicKey = JSON.parse(FileReadWrite.readFromFileSync(path.join(__dirname, "../key", "/keys.json"), "r").toString())[0]["sign_and_verify"]["public"];
+  return verify.verify(publicKey, signature);
 }
 
 /**
