@@ -1,24 +1,5 @@
-import submitForm from "./agent.js";
-
-const validation = (function () {
-  function validateCode(code) {
-    return code !== "" && code.length === 6;
-  }
-
-  function validatePhone(phone) {
-    return phone !== "" && phone.length === 10 && phone.split("").every((char) => Number.isInteger(parseInt(char, 10)));
-  }
-
-  return {
-    validateCode,
-    validatePhone,
-  };
-})();
-
-const getPhoneNumber = (function () {
-  const phone = document.cookie.split("=")[1] || "";
-  return phone;
-})();
+import request from "./agent.js";
+import { getPhoneNumber, validation, showError } from "./utils.js";
 
 (function () {
   const submitButton = document.getElementById("submit_btn");
@@ -33,9 +14,9 @@ const getPhoneNumber = (function () {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    if (!validation.validateCode(code.value)) {
+    if (!validation().validateCode(code.value)) {
       showError("Invalid code");
-    } else if (!validation.validatePhone(phone)) {
+    } else if (!validation().validatePhone(phone)) {
       showError("Invalid phone number");
     } else {
       const body = { phone: phone, code: code.value };
@@ -43,7 +24,7 @@ const getPhoneNumber = (function () {
       const resource = "user/verification";
       submitButton.setAttribute("disabled", "disabled");
       submitButton.textContent = "Please wait...";
-      submitForm(resource, method, body)
+      request(resource, method, body)
         .then((response) => {
           if (response.ok) {
             const url = response.url;
@@ -55,9 +36,9 @@ const getPhoneNumber = (function () {
               .json()
               .then((data) => {
                 if (data["status"] === "fail") {
-                  showError(data["message"]);
+                  showError(data["message"], error);
                 } else {
-                  showError(data["message"]);
+                  showError(data["message"], error);
                 }
               })
               .catch((error) => {
@@ -77,16 +58,16 @@ const getPhoneNumber = (function () {
     const method = "POST";
     const resource = "user/resend_verification";
     resend.textContent = "Please wait...";
-    submitForm(resource, method, body)
+    request(resource, method, body)
       .then((response) => {
         resend.textContent = "Request another here";
         response
           .json()
           .then((data) => {
             if (data["status"] === "fail") {
-              showError(data["message"]);
+              showError(data["message"], error);
             } else {
-              showError(data["message"]);
+              showError(data["message"], error);
             }
           })
           .catch((error) => {
@@ -96,14 +77,5 @@ const getPhoneNumber = (function () {
       .catch((error) => {
         console.error(error);
       });
-  }
-
-  function showError(message) {
-    error.textContent = message;
-    error.classList.toggle("hide_error");
-    setTimeout(function () {
-      error.textContent = "";
-      error.classList.toggle("hide_error");
-    }, 3000);
   }
 })();

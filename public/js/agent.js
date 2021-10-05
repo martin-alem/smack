@@ -1,4 +1,4 @@
-export default function submitForm(resource, method, data) {
+export default function request(resource, method, data) {
   const BASE_URL = "http://localhost:3000";
 
   const init = {
