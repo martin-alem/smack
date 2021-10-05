@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express";
 import favicon from "serve-favicon";
 import Server from "./Server.js";
@@ -5,10 +6,15 @@ import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
+import { connectToSmackDatabase } from "./../database/connection.js";
 import viewRouter from "./../routes/viewRouter.js";
 import userRouter from "./../routes/userRouter.js";
 
+dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+//connect to smack database
+connectToSmackDatabase();
 
 const app = express();
 const options = {};
