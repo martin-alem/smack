@@ -7,20 +7,25 @@ import Logger from "./../utils/Logger.js";
 import { insertOne } from "./../database/query.js";
 
 async function signupController(req, res, next) {
-  const user = req.body;
-  const hashedPassword = hashData(user["password"]);
-  const registeredUser = { firstName: user["firstName"], lastName: user["lastName"], email: user["email"], phone: user["phone"], regAttempt: 0, status: "registered", password: hashedPassword };
-  const result = await insertOne(Registration, registeredUser);
-  if (result) {
-    const id = result["_id"];
-    const code = getCode(6);
-    req.body["code"] = code;
-    const verificationData = { userId: id, phone: user["phone"], code: code, status: "pending", verificationAttempt: 0, date: Date.now().toString() };
-    await insertOne(Verification, verificationData);
-    next();
-  } else {
-    Logger.log("ERROR", result, import.meta.url);
-    next(new Errorhandler("Unable to register user", 500));
+  try {
+    const user = req.body;
+    const hashedPassword = hashData(user["password"]);
+    const registeredUser = { firstName: user["firstName"], lastName: user["lastName"], email: user["email"], phone: user["phone"], regAttempt: 0, status: "registered", password: hashedPassword };
+    const result = await insertOne(Registration, registeredUser);
+    if (result) {
+      const id = result["_id"];
+      const code = getCode(6);
+      req.body["code"] = code;
+      const verificationData = { userId: id, phone: user["phone"], code: code, status: "pending", verificationAttempt: 0, date: Date.now().toString() };
+      await insertOne(Verification, verificationData);
+      next();
+    } else {
+      Logger.log("ERROR", result, import.meta.url);
+      next(new Errorhandler("Unable to register user", 500));
+    }
+  } catch (error) {
+    Logger.log("ERROR", error, import.meta.url);
+    next(new Errorhandler("An error occurred on our server", 500));
   }
 }
 

@@ -6,6 +6,7 @@ async function findOne(model, query) {
     return document;
   } catch (error) {
     Logger.log("Error", error, import.meta.url);
+    throw error;
   }
 }
 
@@ -15,6 +16,7 @@ async function insertOne(model, data) {
     return result;
   } catch (error) {
     Logger.log("Error", error, import.meta.url);
+    throw error;
   }
 }
 
@@ -24,6 +26,7 @@ function findAndUpdate(model, filter, data) {
   model.findOneAndUpdate(filter, data, (error, document) => {
     if (error) {
       Logger.log("Error", error, import.meta.url);
+      throw error;
     } else {
       result = document;
     }
