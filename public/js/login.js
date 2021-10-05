@@ -1,35 +1,27 @@
 import request from "./agent.js";
-import { validation, showError } from "./utils.js";
+import { showError } from "./utils.js";
 
 (function () {
-  const submitButton = document.getElementById("register");
-  const firstName = document.getElementById("first_name");
-  const lastName = document.getElementById("last_name");
-  const email = document.getElementById("email");
+  const submitButton = document.getElementById("submit");
   const phone = document.getElementById("phone");
   const password = document.getElementById("password");
   const error = document.querySelector(".error");
+  const remember = document.getElementById("remember");
 
   submitButton.addEventListener("click", handleFormSubmit);
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
-    if (!validation().validateName(firstName.value)) {
-      showError("Invalid first name");
-    } else if (!validation().validateName(lastName.value)) {
-      showError("Invalid last name");
-    } else if (!validation().validatePhone(phone.value)) {
-      showError("Invalid phone");
-    } else if (!validation().validateEmail(email.value)) {
-      showError("Invalid email");
-    } else if (!validation().validatePassword(password.value)) {
-      showError("Invalid password. must be at least 6 characters");
+    if (phone.value === "") {
+      showError("Please provide phone", error);
+    } else if (password.value === "") {
+      showError("Please provide password", error);
     } else {
-      const body = { firstName: firstName.value, lastName: lastName.value, email: email.value, phone: phone.value, password: password.value };
+      const body = { phone: phone.value, password: password.value };
       const method = "POST";
-      const resource = "user/signup";
-
+      const resource = "user/login";
+      submitButton.setAttribute("disabled", "disabled");
+      submitButton.textContent = "Please wait...";
       request(resource, method, body)
         .then((response) => {
           if (response.ok) {
@@ -37,7 +29,7 @@ import { validation, showError } from "./utils.js";
             window.location.replace(url);
           } else {
             submitButton.removeAttribute("disabled");
-            submitButton.textContent = "Sign up";
+            submitButton.textContent = "Sign in";
             response
               .json()
               .then((data) => {
