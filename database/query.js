@@ -20,19 +20,14 @@ async function insertOne(model, data) {
   }
 }
 
-function findAndUpdate(model, filter, data) {
-  let result = null;
-
-  model.findOneAndUpdate(filter, data, (error, document) => {
-    if (error) {
-      Logger.log("Error", error, import.meta.url);
-      throw error;
-    } else {
-      result = document;
-    }
-  });
-
-  return result;
+async function findAndUpdate(model, filter, data) {
+  try {
+    const document = await model.findOneAndUpdate(filter, data, { new: true });
+    return document;
+  } catch (error) {
+    Logger.log("Error", error, import.meta.url);
+    throw error;
+  }
 }
 
 export { findOne, insertOne, findAndUpdate };

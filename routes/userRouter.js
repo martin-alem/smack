@@ -1,5 +1,6 @@
 import express from "express";
 import signupController from "./../controllers/signupController.js";
+import registerController from "./../controllers/registerController.js";
 import blacklistMiddleware from "./../middleware/blacklistMiddleware.js";
 import { lastNameExist, phoneExist } from "./../middleware/existingMiddleware.js";
 import verifyPhone from "./../middleware/verifyPhoneMiddleware.js";
@@ -11,7 +12,7 @@ const userRouter = express.Router();
 userRouter.use(blacklistMiddleware);
 
 userRouter.route("/signup").post(phoneExist, lastNameExist, signupController, sendCodeMiddleware);
-userRouter.route("/verification").post(verifyPhone, verifyCode);
+userRouter.route("/verification").post(verifyPhone, verifyCode, registerController);
 
 userRouter.use((error, req, res, next) => {
   console.log(error);
