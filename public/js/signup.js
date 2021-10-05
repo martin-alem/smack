@@ -66,7 +66,9 @@ const validation = (function () {
             response
               .json()
               .then((data) => {
-                console.log(data);
+                if (data["status"] === "fail") {
+                  showError(data["message"]);
+                }
               })
               .catch((error) => {
                 console.error(error);
