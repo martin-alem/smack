@@ -1133,6 +1133,10 @@ main.home .chat_room .chat_area .local .local_info img {
   opacity: 0;
 }
 
+.hide_error {
+  visibility: hidden !important;
+}
+
 .error {
   background-color: var(--color-error);
   border-radius: 4px;
