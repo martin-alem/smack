@@ -7,7 +7,9 @@ async function verifyPhone(req, res, next) {
   try {
     const phone = req.body["phone"];
     const result = await findOne(Verification, { phone: phone });
-    if (result && result["status"] === "registered") {
+    if (result && result["status"] === "pending") {
+      req.body["dbCode"] = result["code"];
+      req.body["time"] = result["date"];
       next();
     } else {
       next(new Errorhandler("Invalid phone number", 403));
