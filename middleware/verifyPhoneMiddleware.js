@@ -10,6 +10,7 @@ async function verifyPhone(req, res, next) {
     if (result && result["status"] === "pending") {
       req.body["dbCode"] = result["code"];
       req.body["time"] = result["date"];
+      req.body["vAttempts"] = result["verificationAttempt"];
       next();
     } else {
       next(new Errorhandler("Invalid phone number", 403));

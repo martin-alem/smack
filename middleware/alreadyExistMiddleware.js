@@ -22,8 +22,8 @@ async function alreadyExist(req, res, next) {
         next(new Errorhandler("This user has been blacklisted", 403));
       } else {
         // update regAttempt, verification code and timestamp
-        findAndUpdate(Registration, { _id: id }, { regAttempt: regAttempt + 1 });
-        findAndUpdate(Verification, { userId: id }, { code: code, date: Date.now().toString() });
+        await findAndUpdate(Registration, { _id: id }, { regAttempt: regAttempt + 1 });
+        await findAndUpdate(Verification, { userId: id }, { code: code, date: Date.now().toString() });
         const phone = req.body["phone"];
         //send verification and end req res circle
         const message = `Your smack verification code is ${code}. valid for 5 minutes`;

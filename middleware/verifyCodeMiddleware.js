@@ -10,8 +10,8 @@ async function verifyCode(req, res, next) {
     if (codeMatch) {
       time = parseInt(time, 10);
       const currentTime = Date.now();
-      const elapsedTime = Math.round((currentTime - time) / 1000);
-      if (elapsedTime > 5) {
+      const elapsedTime = Math.round((currentTime - time) / 60000);
+      if (elapsedTime <= 5) {
         next();
       } else {
         next(new Errorhandler("Verification code expired", 403));

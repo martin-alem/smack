@@ -16,7 +16,7 @@ const validation = (function () {
 })();
 
 const getPhoneNumber = (function () {
-  const phone = document.cookie.split(";")[0].split("=")[1];
+  const phone = document.cookie.split(";")[2].split("=")[1];
   return phone;
 })();
 
@@ -25,8 +25,10 @@ const getPhoneNumber = (function () {
   const phone = getPhoneNumber;
   const code = document.getElementById("code");
   const error = document.querySelector(".error");
+  const resend = document.querySelector("#resend");
 
   submitButton.addEventListener("click", handleFormSubmit);
+  resend.addEventListener("click", handleResend);
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -67,6 +69,33 @@ const getPhoneNumber = (function () {
           console.error(error);
         });
     }
+  }
+
+  function handleResend(event) {
+    event.preventDefault();
+    const body = { phone: phone };
+    const method = "POST";
+    const resource = "user/resend_verification";
+    resend.textContent = "Please wait...";
+    submitForm(resource, method, body)
+      .then((response) => {
+          resend.textContent = "Request another here";
+          response
+            .json()
+            .then((data) => {
+              if (data["status"] === "fail") {
+                showError(data["message"]);
+              } else {
+                showError(data["message"]);
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function showError(message) {
