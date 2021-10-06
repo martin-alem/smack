@@ -33,6 +33,7 @@ export function getPhoneNumber() {
   return phone;
 }
 
+
 export function showError(message, error) {
   error.textContent = message;
   error.classList.toggle("hide_error");
