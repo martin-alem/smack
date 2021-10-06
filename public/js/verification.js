@@ -26,7 +26,7 @@ import { getPhoneNumber, validation, showError } from "./utils.js";
       submitButton.textContent = "Please wait...";
       request(resource, method, body)
         .then((response) => {
-          if (response.ok) {
+          if (response.redirected) {
             const url = response.url;
             window.location.replace(url);
           } else {

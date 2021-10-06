@@ -1,31 +1,38 @@
 import request from "./agent.js";
 import { showError } from "./utils.js";
+import { validation } from "./utils.js";
 
 (function () {
+  const phone = new URLSearchParams(location.search).get("phone") || "";
+  const duration = new URLSearchParams(location.search).get("duration") || 0;
   const submitButton = document.getElementById("submit");
-  const phone = document.getElementById("phone");
   const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirm_password");
   const error = document.querySelector(".error");
-  const remember = document.getElementById("remember");
 
   submitButton.addEventListener("click", handleFormSubmit);
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (phone.value === "") {
-      showError("Please provide phone", error);
-    } else if (password.value === "") {
+    if (password.value === "") {
       showError("Please provide password", error);
+    } else if (confirmPassword.value === "") {
+      showError("Please provide confirm password", error);
+    } else if (!validation().validatePassword(password.value)) {
+      showError("Password did not meet criteria", error);
+    } else if (confirmPassword.value !== password.value) {
+      showError("Password must match", error);
     } else {
-      const body = { phone: phone.value, password: password.value };
-      const method = "POST";
-      const resource = "user/login";
+      const body = { password: password.value };
+      const method = "PUT";
+      const resource = `user/reset?phone=${phone}&duration=${duration}`;
       submitButton.setAttribute("disabled", "disabled");
       submitButton.textContent = "Please wait...";
       request(resource, method, body)
         .then((response) => {
+          console.log(response);
           submitButton.removeAttribute("disabled");
-          submitButton.textContent = "Sign in";
+          submitButton.textContent = "Reset password";
           if (response.redirected) {
             const url = response.url;
             window.location.replace(url);
@@ -44,7 +51,7 @@ import { showError } from "./utils.js";
         })
         .catch((error) => {
           submitButton.removeAttribute("disabled");
-          submitButton.textContent = "Sign in";
+          submitButton.textContent = "Reset password";
           console.error(error);
         });
     }

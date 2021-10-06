@@ -34,7 +34,7 @@ import { validation, showError } from "./utils.js";
         .then((response) => {
           submitButton.removeAttribute("disabled");
           submitButton.textContent = "Sign up";
-          if (response.ok) {
+          if (response.redirected) {
             const url = response.url;
             window.location.replace(url);
           } else {

@@ -3,6 +3,7 @@ import signupController from "./../controllers/signupController.js";
 import registerController from "./../controllers/registerController.js";
 import resendController from "./../controllers/resendController.js";
 import loginController from "./../controllers/loginController.js";
+import resetController from "./../controllers/resetController.js"
 import resetRequestController from "./../controllers/resetRequestController.js";
 import blacklistMiddleware from "./../middleware/blacklistMiddleware.js";
 import { lastNameExist, phoneExist } from "./../middleware/existingMiddleware.js";
@@ -18,6 +19,7 @@ userRouter.use(blacklistMiddleware);
 userRouter.route("/signup").post(phoneExist, lastNameExist, signupController, sendCodeMiddleware);
 userRouter.route("/login").post(loginController);
 userRouter.route("/verification").post(verifyPhone, verifyCode, registerController);
+userRouter.route("/reset").put(resetController);
 userRouter.route("/reset_request").post(resetRequestController);
 userRouter.route("/resend_verification").post(verifyPhone, checkLimit, resendController);
 
