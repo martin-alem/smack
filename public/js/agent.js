@@ -6,7 +6,6 @@ export default function request(resource, method, data) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
     mode: "same-origin",
     credentials: "same-origin",
     cache: "default",
@@ -14,6 +13,10 @@ export default function request(resource, method, data) {
     referrer: "smack",
     referrerPolicy: "same-origin",
   };
+
+  if (method !== "GET" && method !== "HEAD") {
+    init["body"] = JSON.stringify(data);
+  }
 
   return fetch(`${BASE_URL}/${resource}`, init);
 }

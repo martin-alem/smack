@@ -6,8 +6,6 @@ Author: Martin Alemajoh
 Data:   10/4/2021, 7:51:41 AM
 **/
 
-import ContextMenu from "./ContextMenu.js";
-
 // Tab functionality
 (function () {
   const tabButtons = Array.from(document.querySelectorAll(".tab_btn"));
