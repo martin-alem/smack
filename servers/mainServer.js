@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import { connectToSmackDatabase } from "./../database/connection.js";
 import viewRouter from "./../routes/viewRouter.js";
 import userRouter from "./../routes/userRouter.js";
+import privateRouter from "./../routes/privateRouter.js"
 
 dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -30,8 +31,10 @@ app.set("view engine", "ejs");
 
 // views
 app.use("/view", viewRouter);
-
 // users
 app.use("/user", userRouter);
+
+//private resources
+app.use("/private", privateRouter);
 
 export default httpServer;

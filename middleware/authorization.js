@@ -32,10 +32,10 @@ function protectHome(req, res, next) {
       if (authenticated) {
         next();
       } else {
-        res.redirect(301, "/view/login");
+        res.redirect(303, "/view/login");
       }
     } else {
-      res.redirect(301, "/view/login");
+      res.redirect(303, "/view/login");
     }
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);

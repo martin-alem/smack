@@ -60,6 +60,9 @@ import { validation, showFormError } from "./utils.js";
         .then((response) => {
           if (response.ok) {
             onFirstNameUpdate(firstName.value);
+            if (response.redirected) {
+              window.location.replace(response.url);
+            }
           }
         })
         .catch((error) => {
@@ -80,6 +83,9 @@ import { validation, showFormError } from "./utils.js";
         .then((response) => {
           if (response.ok) {
             onEmailUpdate(email.value);
+            if (response.redirected) {
+              window.location.replace(response.url);
+            }
           }
         })
         .catch((error) => {
@@ -96,5 +102,56 @@ import { validation, showFormError } from "./utils.js";
 
   function onEmailUpdate(newValue) {
     document.querySelectorAll(".user_email").forEach((item) => (item.textContent = newValue));
+  }
+})();
+
+//update profile image
+(function () {
+  const uploadInput = document.getElementById("profile_picture");
+  const uploadButton = document.getElementById("add_a_photo");
+  const imgProfile = document.getElementById("img_profile");
+  const id = document.getElementById("user_id");
+
+  uploadButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    uploadInput.click();
+  });
+  uploadInput.addEventListener("change", handleUploadImage, false);
+
+  function handleUploadImage(event) {
+    event.preventDefault();
+    const file = event.target.files[0];
+    if (file.size > 3e7) {
+      showFormError(imgProfile);
+    } else {
+      const extension = file["type"].split("/")[1];
+      let fileContent = "";
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        imgProfile.src = event.target.result;
+        fileContent = event.target.result;
+        const resource = "user/update";
+        const method = "PATCH";
+        const imageURL = `http://localhost:3000/private/images/${id.value}.${extension}`;
+        const body = { id: id.value, extension: extension, rawImage: fileContent, user_data: { image: imageURL } };
+        request(resource, method, body)
+          .then((response) => {
+            if (response.ok) {
+              onImageUpdate(fileContent);
+              if (response.redirected) {
+                window.location.replace(response.url);
+              }
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function onImageUpdate(fileContent) {
+    document.getElementById("second_image").src = fileContent;
   }
 })();

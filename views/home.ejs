@@ -309,7 +309,7 @@
             </div>
           </div>
           <div class="my_image">
-            <img src="../image/test.jpg" alt="logo" />
+            <img src="<%- user['image'] %>" alt="logo" id="second_image" />
             <h1 class="user_full_name"><%- user["firstName"]%> <%- user["lastName"]%></h1>
             <span class="material-icons">fiber_manual_record</span>
           </div>
@@ -339,8 +339,11 @@
             <h1>Settings</h1>
           </div>
           <div class="my_image">
-            <img src="../image/test.jpg" alt="logo" />
+            <img id="img_profile" src="<%- user['image'] %>" alt="logo" />
             <h1 class="user_full_name"><%- user["firstName"] %> <%- user["lastName"] %></h1>
+            <form id="upload_profile_form">
+              <input type="file" name="file" id="profile_picture" class="hide" accept=".jpg, .jpeg, .png" />
+            </form>
             <span id="add_a_photo" class="material-icons">add_a_photo</span>
           </div>
           <div class="about">

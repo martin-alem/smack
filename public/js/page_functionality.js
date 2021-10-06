@@ -49,19 +49,19 @@ Data:   10/4/2021, 7:51:41 AM
       const target = event.target;
       if (target.dataset["type"] === "local_msg_action" || target.dataset["type"] === "remote_msg_action") {
         target.nextElementSibling.classList.toggle("hide");
-        chatAreaActive = false;
       }
+      chatAreaActive = false;
     }
   });
 
   const chatHeaderContext = document.querySelector("#chat_menu_action");
   chatHeaderContext.addEventListener("click", function (event) {
-    if (!chatAreaActive) {
+    if (!chatHeaderActive) {
       chatHeaderActive = true;
       const target = event.target;
       target.nextElementSibling.classList.toggle("hide");
-      chatHeaderActive = false;
     }
+    chatHeaderActive = false;
   });
 
   const friendAreaContext = document.querySelector(".friend_list");
@@ -71,8 +71,8 @@ Data:   10/4/2021, 7:51:41 AM
       const target = event.target;
       if (target.dataset["type"] === "friend_action") {
         target.nextElementSibling.classList.toggle("hide");
-        friendAreaActive = false;
       }
+      friendAreaActive = false;
     }
   });
 
@@ -82,8 +82,8 @@ Data:   10/4/2021, 7:51:41 AM
       const target = event.target;
       profileAreaActive = true;
       target.nextElementSibling.classList.toggle("hide");
-      profileAreaActive = false;
     }
+    profileAreaActive = false;
   });
 })();
 
