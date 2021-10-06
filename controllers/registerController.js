@@ -23,7 +23,7 @@ async function registerUser(req, res, next) {
     res.clearCookie("_user_phone");
     res.cookie("_user_uid", userSUID, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
     res.cookie("_user_token", userToken, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
-    res.redirect(301, "/view/home");
+    res.redirect(303, "/view/home");
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);
     next(new Errorhandler("An error occurred on our server", 500));

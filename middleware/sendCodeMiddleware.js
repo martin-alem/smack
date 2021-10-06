@@ -13,7 +13,7 @@ async function sendVerification(req, res, next) {
       next(new Errorhandler("Unable to send verification code", 500));
     } else {
       res.cookie("_user_phone", phone, { sameSite: true });
-      res.redirect(301, "/view/verification");
+      res.redirect(303, "/view/verification");
     }
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);

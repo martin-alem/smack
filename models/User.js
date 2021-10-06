@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
   image: {
     type: String,
     required: false,
-    default: null,
+    default: "../image/test.jpg",
   },
   status: {
     type: String,

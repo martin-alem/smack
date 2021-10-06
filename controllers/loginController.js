@@ -29,7 +29,7 @@ async function loginController(req, res, next) {
           const userSUID = signCookie(userToken);
           res.cookie("_user_uid", userSUID, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
           res.cookie("_user_token", userToken, { expires: new Date(Date.now() + 1 * 3600000), sameSite: true });
-          res.redirect(301, "/view/home");
+          res.redirect(303, "/view/home");
         } else {
           await findAndUpdate(LoginUser, { phone: phone }, { loginAttempts: loginAttempts + 1 });
           next(new Errorhandler("Invalid phone or password", 403));
