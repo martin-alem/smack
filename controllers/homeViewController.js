@@ -1,4 +1,5 @@
-function homeViewController(req, res, next) {
+function homeViewController(req, res, next)
+{
   res.status(200).render("home");
 }
 

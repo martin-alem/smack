@@ -85,6 +85,10 @@ class ContextMenu {
           <p class="item">Delete Account</p>
           <span class="material-icons">delete</span>
         </div>
+        <div class="item_container">
+          <p class="item">Logout</p>
+          <span id="logout" class="material-icons">logout</span>
+        </div>
       </div>
     </div>`);
     menu.css("top", "4rem");
