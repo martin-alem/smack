@@ -52,3 +52,9 @@ export function hashData(data) {
   hash.update(data);
   return hash.digest("hex");
 }
+
+export async function buildEmailTemplate(templateName, url) {
+  let template = await FileReadWrite.readFromFile(path.join(__dirname, "../templates", `${templateName}.html`));
+  template = template.toString().replace("[URL]", `${url}`);
+  return template;
+}

@@ -3,6 +3,7 @@ import Logger from "./../utils/Logger.js";
 import LoginUser from "./../models/Login.js";
 import { findOne, findAndUpdate } from "./../database/query.js";
 import { hashData, signCookie } from "./../utils/utils.js";
+import sendEmail from "./../services/sendEmail.js";
 
 async function loginController(req, res, next) {
   try {
@@ -16,6 +17,7 @@ async function loginController(req, res, next) {
         //change use status to blocked
         await findAndUpdate(LoginUser, { phone: phone }, { status: "blocked" });
         //send email
+        await sendEmail.sendEmail({ templateName: "block", address: "alemajohmartin@gmail.com", subject: "Account Blocked", url: "https://www.google.com" });
         next(new Errorhandler("This account is blocked. Check your email", 403));
       } else {
         if (hashData(password) === result["password"]) {
@@ -35,7 +37,7 @@ async function loginController(req, res, next) {
       next(new Errorhandler("No account exist with the provided credentials", 403));
     }
   } catch (error) {
-    Logger.log("ERROR", error, import.meta.url);
+    Logger.log("ERROR", error.stackTrace, import.meta.url);
     next(new Errorhandler("An error has occurred on our server", 500));
   }
 }
