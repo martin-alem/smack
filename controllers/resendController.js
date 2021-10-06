@@ -17,7 +17,7 @@ async function resendVerification(req, res, next) {
       next(new Errorhandler("Unable to send verification code", 500));
     } else {
       await findAndUpdate(Verification, { phone: phone }, { verificationAttempt: attempts + 1, code: code, date: Date.now().toString() });
-      res.status(200).json({ status: "success", message: "Verification code sent successfully" });
+      res.status(201).json({ status: "success", message: "Verification code sent successfully" });
     }
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);
