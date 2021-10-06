@@ -1,6 +1,7 @@
 import Errorhandler from "../utils/Errorhandler.js";
 import Logger from "./../utils/Logger.js";
 import LoginUser from "./../models/Login.js";
+import User from "../models/User.js";
 import { findOne, findAndUpdate } from "./../database/query.js";
 import { hashData, signCookie } from "./../utils/utils.js";
 import sendEmail from "./../services/sendEmail.js";
@@ -16,8 +17,9 @@ async function loginController(req, res, next) {
       if (loginAttempts > 5) {
         //change use status to blocked
         await findAndUpdate(LoginUser, { phone: phone }, { status: "blocked" });
+        const userEmail = await findOne(User, { phone: phone });
         //send email
-        await sendEmail.sendEmail({ templateName: "block", address: "alemajohmartin@gmail.com", subject: "Account Blocked", url: "https://www.google.com" });
+        await sendEmail.sendEmail({ templateName: "block", address: userEmail["email"], subject: "Account Blocked", url: "https://www.google.com" });
         next(new Errorhandler("This account is blocked. Check your email", 403));
       } else {
         if (hashData(password) === result["password"]) {
