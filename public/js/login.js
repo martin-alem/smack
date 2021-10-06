@@ -24,12 +24,12 @@ import { showError } from "./utils.js";
       submitButton.textContent = "Please wait...";
       request(resource, method, body)
         .then((response) => {
+          submitButton.removeAttribute("disabled");
+          submitButton.textContent = "Sign in";
           if (response.ok) {
             const url = response.url;
             window.location.replace(url);
           } else {
-            submitButton.removeAttribute("disabled");
-            submitButton.textContent = "Sign in";
             response
               .json()
               .then((data) => {
@@ -43,6 +43,8 @@ import { showError } from "./utils.js";
           }
         })
         .catch((error) => {
+          submitButton.removeAttribute("disabled");
+          submitButton.textContent = "Sign in";
           console.error(error);
         });
     }

@@ -32,12 +32,12 @@ import { validation, showError } from "./utils.js";
 
       request(resource, method, body)
         .then((response) => {
+          submitButton.removeAttribute("disabled");
+          submitButton.textContent = "Sign up";
           if (response.ok) {
             const url = response.url;
             window.location.replace(url);
           } else {
-            submitButton.removeAttribute("disabled");
-            submitButton.textContent = "Sign up";
             response
               .json()
               .then((data) => {
@@ -51,6 +51,8 @@ import { validation, showError } from "./utils.js";
           }
         })
         .catch((error) => {
+          submitButton.removeAttribute("disabled");
+          submitButton.textContent = "Sign up";
           console.error(error);
         });
     }

@@ -75,6 +75,7 @@ import { getPhoneNumber, validation, showError } from "./utils.js";
           });
       })
       .catch((error) => {
+        resend.textContent = "Request another here";
         console.error(error);
       });
   }
