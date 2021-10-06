@@ -1166,6 +1166,10 @@ main.home .chat_room .chat_area .local .local_info img {
 }
 
 /********************* UTILITY CLASS *************************/
+
+title {
+  text-transform: capitalize;
+}
 .hide {
   display: none !important;
   opacity: 0;
@@ -1193,6 +1197,10 @@ main.home .chat_room .chat_area .local .local_info img {
   color: var(--color-info-text);
   font-size: 1.6rem;
   text-transform: capitalize;
+}
+
+.form_error {
+  border: 1px solid var(--color-error) !important;
 }
 
 .default {

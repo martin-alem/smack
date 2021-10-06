@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Martin Alemajoh" />
-    <title>Home | Martin Alemajoh</title>
+    <title>Home | <%-user["firstName"]%> <%-user["lastName"]%> </title>
 
     <link rel="shortcut icon" href="../image/favicon-32x32.png" type="image/x-icon" />
     <link rel="shortcut icon" href="../image/favicon-16x16.png" type="image/x-icon" />
@@ -310,7 +310,7 @@
           </div>
           <div class="my_image">
             <img src="../image/test.jpg" alt="logo" />
-            <h1><%- user["firstName"]%> <%- user["lastName"]%></h1>
+            <h1 class="user_full_name"><%- user["firstName"]%> <%- user["lastName"]%></h1>
             <span class="material-icons">fiber_manual_record</span>
           </div>
           <div class="about">
@@ -318,7 +318,7 @@
             <hr />
             <div class="name">
               <p>First Name</p>
-              <h3><%- user["firstName"] %></h3>
+              <h3 class="user_first_name"><%- user["firstName"] %></h3>
             </div>
             <div class="name">
               <p>Last Name</p>
@@ -340,34 +340,35 @@
           </div>
           <div class="my_image">
             <img src="../image/test.jpg" alt="logo" />
-            <h1>Martin Alemajoh</h1>
-            <span class="material-icons">add_a_photo</span>
+            <h1 class="user_full_name"><%- user["firstName"] %> <%- user["lastName"] %></h1>
+            <span id="add_a_photo" class="material-icons">add_a_photo</span>
           </div>
           <div class="about">
             <h3>Personal Information</h3>
             <hr />
             <div class="name">
               <p>First Name</p>
-              <form action="/update" method="post">
-                <input type="text" name="first_name" id="first_name" value="Martin" />
+              <form id="update_first_name_form">
+                <input type="text" name="first_name" id="update_first_name" value="<%- user['firstName'] %>" />
+                <input type="hidden" id="user_id" value="<%- user['_id'] %>" />
               </form>
             </div>
             <div class="name">
               <p>Last Name</p>
               <form>
-                <input type="text" value="Alemajoh" disabled />
+                <input type="text" id="last_name" value="<%- user['lastName'] %>" disabled />
               </form>
             </div>
             <div class="email">
               <p>Email Address</p>
-              <form action="/update" method="post">
-                <input type="text" name="email" id="email" value="alemajohmartin@gmail.com" />
+              <form id="update_email_form">
+                <input type="text" name="email" id="update_email" value="<%- user['email'] %>" />
               </form>
             </div>
             <div class="phone">
               <p>Phone Number</p>
               <form>
-                <input type="text" value="614-284-5041" disabled />
+                <input type="text" value="<%- user['phone'] %>" disabled />
               </form>
             </div>
           </div>

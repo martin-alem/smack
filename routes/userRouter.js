@@ -5,6 +5,7 @@ import resendController from "./../controllers/resendController.js";
 import loginController from "./../controllers/loginController.js";
 import resetController from "./../controllers/resetController.js";
 import logoutController from "./../controllers/logoutController.js";
+import updateController from "./../controllers/updateController.js";
 import removeAccountController from "../controllers/removeAccountController.js";
 import resetRequestController from "./../controllers/resetRequestController.js";
 import blacklistMiddleware from "./../middleware/blacklistMiddleware.js";
@@ -13,6 +14,7 @@ import verifyPhone from "./../middleware/verifyPhoneMiddleware.js";
 import verifyCode from "./../middleware/verifyCodeMiddleware.js";
 import sendCodeMiddleware from "./../middleware/sendCodeMiddleware.js";
 import checkLimit from "./../middleware/checkLimitMiddleware.js";
+import { protectHome } from "./../middleware/authorization.js";
 
 const userRouter = express.Router();
 
@@ -22,6 +24,7 @@ userRouter.route("/signup").post(phoneExist, lastNameExist, signupController, se
 userRouter.route("/login").post(loginController);
 userRouter.route("/remove_account").delete(removeAccountController);
 userRouter.route("/logout").get(logoutController);
+userRouter.route("/update").patch(protectHome, updateController);
 userRouter.route("/verification").post(verifyPhone, verifyCode, registerController);
 userRouter.route("/reset").put(resetController);
 userRouter.route("/reset_request").post(resetRequestController);

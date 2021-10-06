@@ -33,12 +33,18 @@ export function getPhoneNumber() {
   return phone;
 }
 
-
 export function showError(message, error) {
   error.textContent = message;
   error.classList.toggle("hide_error");
   setTimeout(function () {
     error.textContent = "";
     error.classList.toggle("hide_error");
+  }, 3000);
+}
+
+export function showFormError(formRef) {
+  formRef.classList.toggle("form_error");
+  setTimeout(function () {
+    formRef.classList.toggle("form_error");
   }, 3000);
 }
