@@ -280,13 +280,33 @@
             <div class="friend">
               <h3>Martin Alemajoh</h3>
               <span data-type="friend_action" class="material-icons"> more_vert </span>
+              <div class="context_menu hide">
+                <div class="body">
+                  <div id="block" class="item_container">
+                    <p class="item">Block</p>
+                    <span class="material-icons">block</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div id="profile" class="tab_nav tab_profile hide">
           <div class="heading">
             <h1>My Profile</h1>
-            <span data-type="profile_action" class="material-icons">more_vert</span>
+            <span id="profile_action" class="material-icons">more_vert</span>
+            <div class="context_menu hide">
+              <div class="body">
+                <div id="delete" class="item_container">
+                  <p class="item">Delete Account</p>
+                  <span class="material-icons">delete</span>
+                </div>
+                <div id="logout" class="item_container">
+                  <p class="item">Logout</p>
+                  <span class="material-icons">logout</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="my_image">
             <img src="../image/test.jpg" alt="logo" />
@@ -419,13 +439,49 @@
             <span class="material-icons">call</span>
             <span class="material-icons">video_call</span>
             <span class="material-icons">person</span>
-            <span data-type="conversion_msg" class="material-icons">more_horiz</span>
+            <span id="chat_menu_action" class="material-icons">more_horiz</span>
+            <div class="context_menu chat_context_menu hide">
+              <div class="body">
+                <div class="item_container">
+                  <p class="item">Archive</p>
+                  <span class="material-icons">archive</span>
+                </div>
+                <div class="item_container">
+                  <p class="item">Mute</p>
+                  <span class="material-icons">volume_off</span>
+                </div>
+                <div class="item_container">
+                  <p class="item">Delete</p>
+                  <span class="material-icons">delete</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="chat_area">
           <div class="remote">
             <div class="message_container">
-              <span data-type="msg_action" data-direction="left" class="material-icons">more_vert</span>
+              <span data-type="remote_msg_action" data-direction="left" class="material-icons">more_vert</span>
+              <div class="context_menu msg_context_menu hide">
+                <div class="body">
+                  <div class="item_container">
+                    <p class="item">Copy</p>
+                    <span class="material-icons">content_copy</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Save</p>
+                    <span class="material-icons">save_alt</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Share</p>
+                    <span class="material-icons">share</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Delete</p>
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
               <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?</div>
               <div class="time">
                 <span class="material-icons">access_time</span>
@@ -439,7 +495,27 @@
           </div>
           <div class="local">
             <div class="message_container">
-              <span data-type="msg_action" data-direction="right" class="material-icons">more_vert</span>
+              <span data-type="local_msg_action" class="material-icons">more_vert</span>
+              <div class="context_menu msg_context_menu hide">
+                <div class="body">
+                  <div class="item_container">
+                    <p class="item">Copy</p>
+                    <span class="material-icons">content_copy</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Save</p>
+                    <span class="material-icons">save_alt</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Share</p>
+                    <span class="material-icons">share</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Delete</p>
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
               <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are </div>
               <div class="time">
                 <span class="material-icons">access_time</span>

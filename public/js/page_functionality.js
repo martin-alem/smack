@@ -39,58 +39,51 @@ import ContextMenu from "./ContextMenu.js";
 
 //Context Menus
 (function () {
-  let chatAreaActive = false;
+  let chatHeaderActive = false;
   let friendAreaActive = false;
   let profileAreaActive = false;
-  let contextMenu = null;
-  const chatAreaContext = document.querySelector(".chat_room");
+  let chatAreaActive = false;
+
+  const chatAreaContext = document.querySelector(".chat_area");
   chatAreaContext.addEventListener("click", function (event) {
     if (!chatAreaActive) {
       chatAreaActive = true;
       const target = event.target;
-      if (target.dataset["type"] === "msg_action") {
-        const context = target.parentElement;
-        contextMenu = new ContextMenu(context, "some data");
-        contextMenu = contextMenu.messageContextMenu(target.dataset["direction"]);
-      } else if (target.dataset["type"] === "conversion_msg") {
-        const context = target.parentElement;
-        contextMenu = new ContextMenu(context, "some data");
-        contextMenu = contextMenu.conversionContextMenu();
+      if (target.dataset["type"] === "local_msg_action" || target.dataset["type"] === "remote_msg_action") {
+        target.nextElementSibling.classList.toggle("hide");
+        chatAreaActive = false;
       }
-    } else {
-      contextMenu?.classList.add("hide");
-      chatAreaActive = false;
     }
   });
 
-  const friendAreaContext = document.querySelector(".tab_friends");
+  const chatHeaderContext = document.querySelector("#chat_menu_action");
+  chatHeaderContext.addEventListener("click", function (event) {
+    if (!chatAreaActive) {
+      chatHeaderActive = true;
+      const target = event.target;
+      target.nextElementSibling.classList.toggle("hide");
+      chatHeaderActive = false;
+    }
+  });
+
+  const friendAreaContext = document.querySelector(".friend_list");
   friendAreaContext.addEventListener("click", function (event) {
     if (!friendAreaActive) {
       friendAreaActive = true;
       const target = event.target;
       if (target.dataset["type"] === "friend_action") {
-        const context = target.parentElement;
-        contextMenu = new ContextMenu(context, "some data");
-        contextMenu = contextMenu.friendContextMenu();
+        target.nextElementSibling.classList.toggle("hide");
+        friendAreaActive = false;
       }
-    } else {
-      contextMenu.classList.add("hide");
-      friendAreaActive = false;
     }
   });
 
-  const profileAreaContext = document.querySelector(".tab_profile");
+  const profileAreaContext = document.querySelector("#profile_action");
   profileAreaContext.addEventListener("click", function (event) {
     if (!profileAreaActive) {
-      profileAreaActive = true;
       const target = event.target;
-      if (target.dataset["type"] === "profile_action") {
-        const context = target.parentElement;
-        contextMenu = new ContextMenu(context, "some data");
-        contextMenu = contextMenu.profileContextMenu();
-      }
-    } else {
-      contextMenu.classList.add("hide");
+      profileAreaActive = true;
+      target.nextElementSibling.classList.toggle("hide");
       profileAreaActive = false;
     }
   });

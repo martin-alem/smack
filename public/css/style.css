@@ -627,6 +627,7 @@ main.home .tab_content .tab_friends .friend_list .friend {
   justify-content: space-between;
   align-items: center;
   white-space: nowrap;
+  position: relative;
 }
 
 main.home .tab_content .tab_friends .friend_list .friend h3 {
@@ -671,6 +672,7 @@ main.home .tab_content .tab_profile .heading {
   justify-content: space-between;
   align-items: center;
   margin-top: -2rem;
+  position: relative;
 }
 
 main.home .tab_content .tab_profile .heading h1 {
@@ -847,6 +849,7 @@ main.home .chat_room .header .actions {
   display: flex;
   align-items: center;
   gap: 2rem;
+  position: relative;
 }
 
 main.home .chat_room .header .actions > span {
@@ -1021,6 +1024,33 @@ main.home .chat_room .chat_area .local .local_info img {
   padding: 1rem;
   color: var(--dark-text-color);
   position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -70%0);
+  z-index: 30;
+}
+
+.chat_context_menu {
+  width: 15rem;
+  background-color: var(--color-lavender);
+  padding: 1rem;
+  color: var(--dark-text-color);
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  transform: translate(-10%, -70%0);
+  z-index: 30;
+}
+
+.msg_context_menu {
+  width: 15rem;
+  background-color: var(--color-lavender);
+  padding: 1rem;
+  color: var(--dark-text-color);
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  transform: translate(-10%, -70%0);
   z-index: 30;
 }
 
@@ -1359,6 +1389,41 @@ main.home .chat_room .chat_area .local .local_info img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .context_menu {
+    width: 15rem;
+    background-color: var(--color-lavender);
+    padding: 1rem;
+    color: var(--dark-text-color);
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-30%, -70%0);
+    z-index: 30;
+  }
+
+  .chat_context_menu {
+    width: 15rem;
+    background-color: var(--color-lavender);
+    padding: 1rem;
+    color: var(--dark-text-color);
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    transform: translate(-5%, -70%0);
+    z-index: 30;
+  }
+
+  .msg_context_menu {
+    width: 15rem;
+    background-color: var(--color-lavender);
+    padding: 1rem;
+    color: var(--dark-text-color);
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%0);
+    z-index: 30;
   }
 }
 
