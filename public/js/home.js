@@ -133,7 +133,7 @@ import { validation, showFormError } from "./utils.js";
         fileContent = event.target.result;
         const resource = "user/update";
         const method = "PATCH";
-        const imageURL = `http://localhost:3000/private/images/${id.value}.${extension}`;
+        const imageURL = `https://smacku.herokuapp.com/private/images/${id.value}.${extension}`;
         const body = { id: id.value, extension: extension, rawImage: fileContent, user_data: { image: imageURL } };
         request(resource, method, body)
           .then((response) => {
