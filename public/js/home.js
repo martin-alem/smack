@@ -186,7 +186,7 @@ import { validation, showFormError, showError } from "./utils.js";
               response
                 .json()
                 .then((data) => {
-                  showError(data, information);
+                  showError(data["message"], information);
                   phone.value = "";
                   message.value = "";
                   submitButton.removeAttribute("disabled");

@@ -1,9 +1,9 @@
 import Errorhandler from "../utils/Errorhandler.js";
-import Logger from "./../utils/Logger.js";
-import User from "./../models/User.js";
-import { findAll } from "./../database/query.js";
+import Logger from "../utils/Logger.js";
+import User from "../models/User.js";
+import { findAll } from "../database/query.js";
 
-async function fetchAllFriends(req, res, next) {
+async function fetchAllFriendsController(req, res, next) {
   try {
     const result = await findAll(User);
     res.status(200).json({ total: result.length, friends: result });
@@ -13,4 +13,4 @@ async function fetchAllFriends(req, res, next) {
   }
 }
 
-export default fetchAllFriends;
+export default fetchAllFriendsController;

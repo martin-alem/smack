@@ -6,7 +6,8 @@ import loginController from "./../controllers/loginController.js";
 import resetController from "./../controllers/resetController.js";
 import logoutController from "./../controllers/logoutController.js";
 import updateController from "./../controllers/updateController.js";
-import fetchAllFriends from "./../controllers/fetchAllFriends.js";
+import fetchAllFriendsController from "./../controllers/fetchAllFriendsController.js"; //
+import inviteFriendController from "./../controllers/inviteFriendController.js";
 import removeAccountController from "../controllers/removeAccountController.js";
 import resetRequestController from "./../controllers/resetRequestController.js";
 import blacklistMiddleware from "./../middleware/blackListMiddleware.js";
@@ -21,7 +22,8 @@ const userRouter = express.Router();
 
 userRouter.use(blacklistMiddleware);
 
-userRouter.route("/").get(protectHome,fetchAllFriends);
+userRouter.route("/").get(protectHome, fetchAllFriendsController);
+userRouter.route("/invite").post(protectHome, inviteFriendController);
 userRouter.route("/signup").post(phoneExist, lastNameExist, signupController, sendCodeMiddleware);
 userRouter.route("/login").post(loginController);
 userRouter.route("/remove_account").delete(removeAccountController);
