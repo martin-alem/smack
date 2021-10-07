@@ -14,7 +14,6 @@ const fetchAllFriends = function () {
           response
             .json()
             .then((data) => {
-              console.log(data);
               render(data["friends"]);
             })
             .catch((error) => {
@@ -32,7 +31,7 @@ const fetchAllFriends = function () {
     friendListContainer.empty();
     users.forEach((user) => {
       const friend = $(`
-            <div class="friend">
+            <div data-friend="${user["_id"]}" class="friend">
               <h3>${user["firstName"]} ${user["lastName"]}</h3>
               <span data-type="friend_action" data-id="${user["_id"]}" class="material-icons"> more_vert </span>
               <div class="context_menu hide">
@@ -45,10 +44,43 @@ const fetchAllFriends = function () {
               </div>
             </div>`);
       if (id !== user["_id"]) {
+        friend.click(friend, connectToChatRoom);
         friendListContainer.append(friend);
       }
     });
   }
 };
+
+//connect to chat room
+function connectToChatRoom(event) {
+  const id = event.data.data()["friend"];
+  fetchUserInfo(id);
+}
+
+// update chat room UI
+function fetchUserInfo(id) {
+  const resource = `user/${id}`;
+  const method = "GET";
+  request(resource, method, {})
+    .then((response) => {
+      if (response.ok) {
+        if (response.redirected) {
+          location.replace(response.url);
+        } else {
+          response
+            .json()
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 
 export default fetchAllFriends;

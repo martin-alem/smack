@@ -175,3 +175,4 @@ import fetchAllFriends from "./fetchFriends.js";
     }
   });
 })();
+

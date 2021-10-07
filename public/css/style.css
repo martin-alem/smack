@@ -628,6 +628,7 @@ main.home .tab_content .tab_friends .friend_list .friend {
   align-items: center;
   white-space: nowrap;
   position: relative;
+  cursor: pointer;
 }
 
 main.home .tab_content .tab_friends .friend_list .friend h3 {

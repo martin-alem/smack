@@ -10,6 +10,7 @@ import fetchAllFriendsController from "./../controllers/fetchAllFriendsControlle
 import inviteFriendController from "./../controllers/inviteFriendController.js";
 import removeAccountController from "../controllers/removeAccountController.js";
 import resetRequestController from "./../controllers/resetRequestController.js";
+import fetchUserController from "./../controllers/fetchUserController.js"
 import blacklistMiddleware from "./../middleware/blackListMiddleware.js";
 import { lastNameExist, phoneExist } from "./../middleware/existingMiddleware.js";
 import verifyPhone from "./../middleware/verifyPhoneMiddleware.js";
@@ -23,6 +24,7 @@ const userRouter = express.Router();
 userRouter.use(blacklistMiddleware);
 
 userRouter.route("/").get(protectHome, fetchAllFriendsController);
+userRouter.route("/:id").get(protectHome, fetchUserController);
 userRouter.route("/invite").post(protectHome, inviteFriendController);
 userRouter.route("/signup").post(phoneExist, lastNameExist, signupController, sendCodeMiddleware);
 userRouter.route("/login").post(loginController);
