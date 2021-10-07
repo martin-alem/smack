@@ -14,6 +14,8 @@ async function protectVerification(req, res, next) {
       } else {
         next();
       }
+    } else {
+      res.redirect(303, "/signup");
     }
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);
