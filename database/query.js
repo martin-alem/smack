@@ -40,4 +40,14 @@ async function findAll(model) {
   }
 }
 
-export { findOne, insertOne, findAndUpdate, findAll };
+async function findAllWithFilter(model, filter) {
+  try {
+    const result = await model.find(filter);
+    return result;
+  } catch (error) {
+    Logger.log("Error", error, import.meta.url);
+    throw error;
+  }
+}
+
+export { findOne, insertOne, findAndUpdate, findAll, findAllWithFilter };

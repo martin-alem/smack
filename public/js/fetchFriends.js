@@ -70,10 +70,47 @@ function fetchUserInfo(id) {
           response
             .json()
             .then((data) => {
-              console.log(data);
+              updateChatRoomUI(data["friend"]);
+              fetchAllChats(data["friend"]["_id"]);
             })
             .catch((error) => {
               console.error(error);
+            });
+        }
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+function updateChatRoomUI(user) {
+  const currentUser = document.getElementById("current_chat_user_name");
+  const placeholder = document.getElementById("chat_message");
+  const currentUserImage = document.getElementById("current_user_image");
+  currentUserImage.src = user["image"];
+  currentUser.textContent = `${user["firstName"]} ${user["lastName"]}`;
+  placeholder.placeholder = `Message ${user["firstName"]} ${user["lastName"]}`;
+}
+
+function fetchAllChats(rId) {
+  const senderId = getId();
+  const recipientId = rId;
+  const resource = `chat/${senderId}/${recipientId}`;
+  const method = "GET";
+  request(resource, method, {})
+    .then((response) => {
+      if (response.ok) {
+        if (response.redirected) {
+          location.replace(response.url);
+        } else {
+          response
+            .json()
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              console.log(error);
             });
         }
       }

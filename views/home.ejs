@@ -417,12 +417,12 @@
         </div>
       </div>
       <div class="chat_room">
-        <div class="header">
+        <div class="header" id="chat_room_header">
           <div class="participant">
             <span id="close_chat_room" class="material-icons"> chevron_left </span>
-            <img src="../image/test.jpg" alt="logo" />
+            <img id="current_user_image" src="../image/test.jpg" alt="logo" />
             <div class="name_status">
-              <p>Martin Alemajoh</p>
+              <p id="current_chat_user_name">Martin Alemajoh</p>
               <span class="material-icons">fiber_manual_record</span>
             </div>
           </div>
@@ -522,7 +522,7 @@
         <div class="footer">
           <div class="uploads"></div>
           <div class="messaging">
-            <textarea name="message" id="message" placeholder="Message Martin Alemajoh"></textarea>
+            <textarea name="message" id="chat_message" placeholder="Message Martin Alemajoh"></textarea>
             <div class="actions">
               <span class="material-icons">emoji_emotions</span>
               <span class="material-icons">mic</span>
