@@ -29,7 +29,8 @@ import { validation, showError } from "./utils.js";
       const body = { firstName: firstName.value, lastName: lastName.value, email: email.value, phone: phone.value, password: password.value };
       const method = "POST";
       const resource = "user/signup";
-
+      submitButton.setAttribute("disabled", "disabled");
+      submitButton.textContent = "Please wait...";
       request(resource, method, body)
         .then((response) => {
           submitButton.removeAttribute("disabled");

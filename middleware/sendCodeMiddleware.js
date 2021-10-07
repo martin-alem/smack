@@ -12,6 +12,9 @@ async function sendVerification(req, res, next) {
       Logger.log("ERROR", "Unable to send verification code", import.meta.url);
       next(new Errorhandler("Unable to send verification code", 500));
     } else {
+      res.clearCookie("1P_JAR");
+      res.clearCookie("_user_token");
+      res.clearCookie("_user_uid");
       res.cookie("_user_phone", phone, { sameSite: true });
       res.redirect(303, "/verification");
     }
