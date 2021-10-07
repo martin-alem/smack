@@ -16,13 +16,13 @@ import { validation, showError } from "./utils.js";
     event.preventDefault();
 
     if (!validation().validateName(firstName.value)) {
-      showError("Invalid first name");
+      showError("Invalid first name", error);
     } else if (!validation().validateName(lastName.value)) {
-      showError("Invalid last name");
+      showError("Invalid last name", error);
     } else if (!validation().validatePhone(phone.value)) {
-      showError("Invalid phone");
+      showError("Invalid phone", error);
     } else if (!validation().validateEmail(email.value)) {
-      showError("Invalid email");
+      showError("Invalid email", error);
     } else if (!validation().validatePassword(password.value)) {
       showError("Invalid password. must be at least 6 characters");
     } else {
