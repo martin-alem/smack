@@ -1,5 +1,6 @@
 import request from "./agent.js";
 import { getId } from "./utils.js";
+import socket from "./chat.js";
 
 const fetchAllFriends = function () {
   const friendListContainer = $("#friend_list");
@@ -88,8 +89,11 @@ function updateChatRoomUI(user) {
   const currentUser = document.getElementById("current_chat_user_name");
   const placeholder = document.getElementById("chat_message");
   const currentUserImage = document.getElementById("current_user_image");
+  const recipientId = document.getElementById("receiver_id");
+  recipientId.value = user["_id"];
   currentUserImage.src = user["image"];
   currentUser.textContent = `${user["firstName"]} ${user["lastName"]}`;
+  placeholder.removeAttribute("disabled");
   placeholder.placeholder = `Message ${user["firstName"]} ${user["lastName"]}`;
 }
 
@@ -107,7 +111,8 @@ function fetchAllChats(rId) {
           response
             .json()
             .then((data) => {
-              console.log(data);
+              displayChat(data["chats"], senderId, recipientId);
+              socket.send(JSON.stringify({ event: "assign", host: `${senderId}` }));
             })
             .catch((error) => {
               console.log(error);
@@ -118,6 +123,80 @@ function fetchAllChats(rId) {
     .catch((error) => {
       console.error(error);
     });
+}
+
+function displayChat(chats, senderId, recipientId) {
+  const chatArea = $(".chat_area");
+  chatArea.empty();
+  for (const chat of chats) {
+    const time = `${new Date(chat["date"]).getHours()}:${new Date(chat["date"]).getMinutes()}`;
+    if (chat["senderId"] === senderId) {
+      const localMessage = $(`
+    <div class="local">
+            <div class="message_container">
+              <div class="context_menu msg_context_menu hide">
+                <div class="body">
+                  <div class="item_container">
+                    <p class="item">Copy</p>
+                    <span class="material-icons">content_copy</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Save</p>
+                    <span class="material-icons">save_alt</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Share</p>
+                    <span class="material-icons">share</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Delete</p>
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message">${chat["messageBody"]}</div>
+              <div class="time">
+                <span class="material-icons">access_time</span>
+                <p>${time}</p>
+              </div>
+            </div>
+          </div>`);
+      chatArea.append(localMessage);
+    } else {
+      const remoteMessage = $(`
+      <div class="remote" id="remote_msg">
+            <div class="message_container">
+              <div class="context_menu msg_context_menu hide">
+                <div class="body">
+                  <div class="item_container">
+                    <p class="item">Copy</p>
+                    <span class="material-icons">content_copy</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Save</p>
+                    <span class="material-icons">save_alt</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Share</p>
+                    <span class="material-icons">share</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Delete</p>
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message">${chat["messageBody"]}</div>
+              <div class="time">
+                <span class="material-icons">access_time</span>
+                <p>${time}</p>
+              </div>
+            </div>
+          </div>`);
+
+      $(".chat_area").append(remoteMessage);
+    }
+  }
 }
 
 export default fetchAllFriends;

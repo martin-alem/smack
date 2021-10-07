@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import mainServer from "./servers/mainServer.js";
+import "./servers/chatServer.js";
 
 dotenv.config();
 

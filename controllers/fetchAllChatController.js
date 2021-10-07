@@ -7,7 +7,7 @@ async function fetchAllChatController(req, res, next) {
   try {
     const senderId = req.params.senderId;
     const recipientId = req.params.recipientId;
-    const result = await findAllWithFilter(Chat, { senderId: senderId, recipientId: recipientId });
+    const result = await findAllWithFilter(Chat, [{ senderId: senderId, recipientId: recipientId }, { senderId: recipientId, recipientId: senderId }]);
     res.status(200).json({ total: result.length, chats: result });
   } catch (error) {
     Logger.log("Error", error, import.meta.url);

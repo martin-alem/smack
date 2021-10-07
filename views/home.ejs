@@ -422,8 +422,8 @@
             <span id="close_chat_room" class="material-icons"> chevron_left </span>
             <img id="current_user_image" src="../image/test.jpg" alt="logo" />
             <div class="name_status">
-              <p id="current_chat_user_name">Martin Alemajoh</p>
-              <span class="material-icons">fiber_manual_record</span>
+              <p id="current_chat_user_name"></p>
+              <span class="material-icons"></span>
             </div>
           </div>
           <div class="actions">
@@ -449,80 +449,15 @@
             </div>
           </div>
         </div>
-        <div class="chat_area">
-          <div class="remote">
-            <div class="message_container">
-              <span data-type="remote_msg_action" data-direction="left" class="material-icons">more_vert</span>
-              <div class="context_menu msg_context_menu hide">
-                <div class="body">
-                  <div class="item_container">
-                    <p class="item">Copy</p>
-                    <span class="material-icons">content_copy</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Save</p>
-                    <span class="material-icons">save_alt</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Share</p>
-                    <span class="material-icons">share</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Delete</p>
-                    <span class="material-icons">delete</span>
-                  </div>
-                </div>
-              </div>
-              <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?Hello Martin How are you?</div>
-              <div class="time">
-                <span class="material-icons">access_time</span>
-                <p>6:00</p>
-              </div>
-            </div>
-            <div class="remote_info">
-              <img src="../image/test.jpg" alt="logo" />
-              <p class="name">Martin Alemajoh</p>
-            </div>
-          </div>
-          <div class="local">
-            <div class="message_container">
-              <span data-type="local_msg_action" class="material-icons">more_vert</span>
-              <div class="context_menu msg_context_menu hide">
-                <div class="body">
-                  <div class="item_container">
-                    <p class="item">Copy</p>
-                    <span class="material-icons">content_copy</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Save</p>
-                    <span class="material-icons">save_alt</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Share</p>
-                    <span class="material-icons">share</span>
-                  </div>
-                  <div class="item_container">
-                    <p class="item">Delete</p>
-                    <span class="material-icons">delete</span>
-                  </div>
-                </div>
-              </div>
-              <div class="message">Hello Martin How are you?Hello Martin How are you?Hello Martin How are </div>
-              <div class="time">
-                <span class="material-icons">access_time</span>
-                <p>6:00</p>
-              </div>
-            </div>
-            <div class="local_info">
-              <img src="../image/test.jpg" alt="logo" />
-              <p class="name">Martin Alemajoh</p>
-            </div>
-          </div>
-        </div>
+        <div class="chat_area"> </div>
         <div class="footer">
           <div class="uploads"></div>
           <div class="messaging">
-            <textarea name="message" id="chat_message" placeholder="Message Martin Alemajoh"></textarea>
+            <form id="chat_form">
+              <input type="hidden" id="receiver_id" />
+              <input type="text" name="message" id="chat_message" placeholder="Select a friend to chat" disabled />
+              <!-- <textarea name="message" id="chat_message" placeholder="Message Martin Alemajoh"></textarea> -->
+            </form>
             <div class="actions">
               <span class="material-icons">emoji_emotions</span>
               <span class="material-icons">mic</span>

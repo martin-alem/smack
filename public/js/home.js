@@ -1,5 +1,7 @@
 import request from "./agent.js";
 import { validation, showFormError, showError } from "./utils.js";
+import socket from "./chat.js";
+import { getId } from "./utils.js";
 
 // logout and delete account
 (function () {
@@ -209,4 +211,46 @@ import { validation, showFormError, showError } from "./utils.js";
   }
 })();
 
+(function () {
+  const chatForm = document.getElementById("chat_form");
+  const message = document.getElementById("chat_message");
 
+  chatForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const inviteId = document.getElementById("receiver_id").value;
+    const data = JSON.stringify({ event: "message", inviteId: inviteId, hostId: getId(), content: message.value });
+    socket.send(data);
+    const localMessage = $(`
+    <div class="local">
+            <div class="message_container">
+              <div class="context_menu msg_context_menu hide">
+                <div class="body">
+                  <div class="item_container">
+                    <p class="item">Copy</p>
+                    <span class="material-icons">content_copy</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Save</p>
+                    <span class="material-icons">save_alt</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Share</p>
+                    <span class="material-icons">share</span>
+                  </div>
+                  <div class="item_container">
+                    <p class="item">Delete</p>
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message">${message.value}</div>
+              <div class="time">
+                <span class="material-icons">access_time</span>
+                <p>${new Date().getHours()}:${new Date().getMinutes()}</p>
+              </div>
+            </div>
+          </div>`);
+    message.value = "";
+    $(".chat_area").append(localMessage);
+  });
+})();

@@ -42,7 +42,7 @@ async function findAll(model) {
 
 async function findAllWithFilter(model, filter) {
   try {
-    const result = await model.find(filter);
+    const result = await model.find({ $or: [...filter] });
     return result;
   } catch (error) {
     Logger.log("Error", error, import.meta.url);

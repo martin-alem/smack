@@ -924,16 +924,18 @@ main.home .chat_room .chat_area::-webkit-scrollbar-thumb {
 }
 
 main.home .chat_room .chat_area .remote {
-  width: 30rem;
+  width: 40rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 main.home .chat_room .chat_area .local {
-  width: 30rem;
+  width: 40rem;
   margin-left: auto;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 main.home .chat_room .chat_area .remote .message_container {
@@ -942,7 +944,6 @@ main.home .chat_room .chat_area .remote .message_container {
   padding: 1rem;
   background-color: var(--primary-color);
   border-radius: 10px;
-  margin-left: 3rem;
 }
 
 main.home .chat_room .chat_area .local .message_container {
