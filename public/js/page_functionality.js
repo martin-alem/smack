@@ -25,10 +25,10 @@ import fetchAllFriends from "./fetchFriends.js";
 
     if (tab["position"]) {
       const tabPosition = parseInt(tab["position"], 10);
-      if (tabPosition === 2) {
-        fetchAllFriends();
-      }
       if (currentTabButtonPosition !== tabPosition) {
+        if (tabPosition === 2) {
+          fetchAllFriends();
+        }
         tabButtons[currentTabButtonPosition].firstElementChild ? tabButtons[currentTabButtonPosition].firstElementChild.classList.toggle("active") : tabButtons[currentTabButtonPosition].classList.toggle("active");
         tabButtons[tabPosition].firstElementChild.classList.toggle("active");
         tabContents[currentTabContentPosition].classList.toggle("hide");

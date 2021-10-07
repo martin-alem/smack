@@ -33,6 +33,11 @@ export function getPhoneNumber() {
   return phone;
 }
 
+export function getId() {
+  const id = document.cookie.split(";")[1].split("=")[1];
+  return id;
+}
+
 export function showError(message, error) {
   error.textContent = message;
   error.classList.toggle("hide_error");
