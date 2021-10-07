@@ -8,7 +8,7 @@ import logoutController from "./../controllers/logoutController.js";
 import updateController from "./../controllers/updateController.js";
 import removeAccountController from "../controllers/removeAccountController.js";
 import resetRequestController from "./../controllers/resetRequestController.js";
-import blacklistMiddleware from "./../middleware/blacklistMiddleware.js";
+import blacklistMiddleware from "./../middleware/blackListMiddleware.js";
 import { lastNameExist, phoneExist } from "./../middleware/existingMiddleware.js";
 import verifyPhone from "./../middleware/verifyPhoneMiddleware.js";
 import verifyCode from "./../middleware/verifyCodeMiddleware.js";
