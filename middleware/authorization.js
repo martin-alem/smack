@@ -10,7 +10,7 @@ async function protectVerification(req, res, next) {
       let phone = req.cookies["_user_phone"] || "";
       const result = await findOne(Verification, { phone: phone });
       if (!result || (result && result["status"] === "verified")) {
-        res.redirect(301, "/signup");
+        res.redirect(303, "/signup");
       } else {
         next();
       }
