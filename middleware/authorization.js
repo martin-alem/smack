@@ -10,7 +10,7 @@ async function protectVerification(req, res, next) {
       let phone = req.cookies["_user_phone"] || "";
       const result = await findOne(Verification, { phone: phone });
       if (!result || (result && result["status"] === "verified")) {
-        res.redirect(301, "/view/signup");
+        res.redirect(301, "/signup");
       } else {
         next();
       }
@@ -32,10 +32,10 @@ function protectHome(req, res, next) {
       if (authenticated) {
         next();
       } else {
-        res.redirect(303, "/view/login");
+        res.redirect(303, "/login");
       }
     } else {
-      res.redirect(303, "/view/login");
+      res.redirect(303, "/login");
     }
   } catch (error) {
     Logger.log("ERROR", error, import.meta.url);

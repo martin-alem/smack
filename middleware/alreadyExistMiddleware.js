@@ -33,7 +33,7 @@ async function alreadyExist(req, res, next) {
           next(new Errorhandler("Unable to send verification code", 500));
         } else {
           res.cookie("_user_phone", phone, { sameSite: true });
-          res.redirect(303, "/view/verification");
+          res.redirect(303, "/verification");
         }
       }
     } else if (status === "active") {

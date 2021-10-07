@@ -19,7 +19,7 @@ async function resetController(req, res, next) {
       if (result && result["status"] === "inactive") {
         const newPassword = hashData(password);
         await findAndUpdate(LoginUser, { phone: phone }, { password: newPassword, status: "active" });
-        res.redirect(303, "/view/login");
+        res.redirect(303, "/login");
       } else {
         next(new Errorhandler("Unable to reset your password", 403));
       }

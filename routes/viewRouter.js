@@ -9,9 +9,9 @@ import resetRequestViewController from "./../controllers/resetRequestViewControl
 
 const viewRouter = express.Router();
 
+viewRouter.route("/").get(protectHome, homeViewController);
 viewRouter.route("/signup").get(signupViewController);
 viewRouter.route("/login").get(loginViewController);
-viewRouter.route("/home").get(protectHome, homeViewController);
 viewRouter.route("/verification").get(protectVerification, verifyViewController);
 viewRouter.route("/reset_request").get(resetRequestViewController);
 viewRouter.route("/reset").get(resetViewController);

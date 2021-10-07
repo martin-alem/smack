@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 
 // views
-app.use("/view", viewRouter);
+app.use("/", viewRouter);
 // users
 app.use("/user", userRouter);
 

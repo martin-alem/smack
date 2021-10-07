@@ -3,6 +3,7 @@ import mainServer from "./servers/mainServer.js";
 
 dotenv.config();
 
-mainServer.listen(process.env.MAIN_SERVER_PORT, "0.0.0.0", () => {
-  console.log(`Main server running on port ${process.env.MAIN_SERVER_PORT}`);
+const PORT = process.env.PORT || 3000;
+mainServer.listen(PORT, () => {
+  console.log(`Main server running on port ${PORT}`);
 });

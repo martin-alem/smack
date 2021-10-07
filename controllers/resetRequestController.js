@@ -13,7 +13,7 @@ async function resetRequestController(req, res, next) {
       const user = await findOne(User, { phone: phone });
       await findAndUpdate(LoginUser, { phone: phone }, { status: "inactive" });
       const time = Date.now().toString();
-      const resetUrl = `http://localhost:3000/view/reset?phone=${phone}&duration=${time}`;
+      const resetUrl = `https://smacku.herokuapp.com/reset?phone=${phone}&duration=${time}`;
       await sendEmail.sendEmail({ templateName: "reset", address: user["email"], subject: "Password Reset Request", url: resetUrl });
       res.status(201).json({ status: "success", message: "Reset link sent. Please check your email" });
     } else {
