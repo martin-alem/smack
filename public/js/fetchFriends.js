@@ -8,15 +8,19 @@ const fetchAllFriends = function () {
   request(resource, method)
     .then((response) => {
       if (response.ok) {
-        response
-          .json()
-          .then((data) => {
-            console.log(data);
-            render(data["friends"]);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+        if (response.redirected) {
+          location.replace(response.url);
+        } else {
+          response
+            .json()
+            .then((data) => {
+              console.log(data);
+              render(data["friends"]);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
       }
     })
     .catch((error) => {

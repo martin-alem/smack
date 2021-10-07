@@ -586,20 +586,20 @@
         <span id="close_add_friend_modal" class="material-icons">close</span>
       </div>
       <div class="body">
-        <span class="error hide">invalid phone or password</span>
+        <span class="info hide_error"></span>
         <form action="/add_friend" method="post" class="add_form">
           <div class="input">
             <label for="phone">Phone Number</label>
-            <input type="text" name="phone" id="phone" placeholder="6248957865" />
+            <input type="text" name="phone" id="friend_phone" placeholder="6248957865" />
           </div>
           <div class="textarea">
             <label for="description">Message</label>
-            <textarea name="message" id="message"></textarea>
+            <textarea name="message" id="invite_message"></textarea>
           </div>
         </form>
       </div>
       <div class="footer">
-        <button class="btn btn-primary">Invite Friend</button>
+        <button id="invite_friend_button" class="btn btn-primary">Invite Friend</button>
       </div>
     </div>
 

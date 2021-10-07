@@ -1,5 +1,5 @@
 import request from "./agent.js";
-import { validation, showFormError } from "./utils.js";
+import { validation, showFormError, showError } from "./utils.js";
 
 // logout and delete account
 (function () {
@@ -154,5 +154,57 @@ import { validation, showFormError } from "./utils.js";
 
   function onImageUpdate(fileContent) {
     document.getElementById("second_image").src = fileContent;
+  }
+})();
+
+(function () {
+  const submitButton = document.getElementById("invite_friend_button");
+  const phone = document.getElementById("friend_phone");
+  const message = document.getElementById("invite_message");
+  const information = document.querySelector(".info");
+
+  submitButton.addEventListener("click", handleFormSubmit);
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (!validation().validatePhone(phone.value)) {
+      showFormError(phone);
+    } else if (message.value === "") {
+      showFormError(message);
+    } else {
+      const body = { phone: phone.value, message: message.value };
+      const resource = "user/invite";
+      const method = "POST";
+      submitButton.setAttribute("disabled", "disabled");
+      submitButton.textContent = "Please wait...";
+      request(resource, method, body)
+        .then((response) => {
+          if (response.ok) {
+            if (response.redirected) {
+              location.replace(response.url);
+            } else {
+              response
+                .json()
+                .then((data) => {
+                  showError(data, information);
+                  phone.value = "";
+                  message.value = "";
+                  submitButton.removeAttribute("disabled");
+                  submitButton.textContent = "Invite Friend";
+                })
+                .catch((error) => {
+                  submitButton.removeAttribute("disabled");
+                  submitButton.textContent = "Invite Friend";
+                  console.error(error);
+                });
+            }
+          }
+        })
+        .catch((error) => {
+          submitButton.removeAttribute("disabled");
+          submitButton.textContent = "Invite Friend";
+          console.error(error);
+        });
+    }
   }
 })();
