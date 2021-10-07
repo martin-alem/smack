@@ -98,6 +98,7 @@ import { validation, showFormError } from "./utils.js";
     document.title = `Home | ${newValue} ${lastName.value}`;
     document.querySelectorAll(".user_full_name").forEach((item) => (item.textContent = `${newValue} ${lastName.value}`));
     document.querySelectorAll(".user_first_name").forEach((item) => (item.textContent = newValue));
+    document.querySelectorAll(".avatar").forEach((item) => (item.textContent = `${newValue.charAt(0).toUpperCase()}`));
   }
 
   function onEmailUpdate(newValue) {

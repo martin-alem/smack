@@ -3,7 +3,7 @@ import { getPhoneNumber, validation, showError } from "./utils.js";
 
 (function () {
   const submitButton = document.getElementById("submit_btn");
-  const phone = getPhoneNumber;
+  const phone = getPhoneNumber();
   const code = document.getElementById("code");
   const error = document.querySelector(".error");
   const resend = document.querySelector("#resend");
@@ -15,9 +15,9 @@ import { getPhoneNumber, validation, showError } from "./utils.js";
     event.preventDefault();
 
     if (!validation().validateCode(code.value)) {
-      showError("Invalid code");
+      showError("Invalid code", error);
     } else if (!validation().validatePhone(phone)) {
-      showError("Invalid phone number");
+      showError("Invalid phone number", error);
     } else {
       const body = { phone: phone, code: code.value };
       const method = "POST";
