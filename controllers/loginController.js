@@ -23,7 +23,7 @@ async function loginController(req, res, next) {
         next(new Errorhandler("This account is blocked. Check your email", 403));
       } else {
         if (hashData(password) === result["password"]) {
-          await findAndUpdate(LoginUser, { phone: phone }, { loginAttempts: 0 });
+          await findAndUpdate(LoginUser, { phone: phone }, { loginAttempts: 0, date: Date.now().toString() });
           //send cookies
           const userToken = result["userId"].toString("hex");
           const userSUID = signCookie(userToken);

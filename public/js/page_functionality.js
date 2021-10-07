@@ -6,6 +6,8 @@ Author: Martin Alemajoh
 Data:   10/4/2021, 7:51:41 AM
 **/
 
+import fetchAllFriends from "./fetchFriends.js";
+
 // Tab functionality
 (function () {
   const tabButtons = Array.from(document.querySelectorAll(".tab_btn"));
@@ -23,6 +25,9 @@ Data:   10/4/2021, 7:51:41 AM
 
     if (tab["position"]) {
       const tabPosition = parseInt(tab["position"], 10);
+      if (tabPosition === 2) {
+        fetchAllFriends();
+      }
       if (currentTabButtonPosition !== tabPosition) {
         tabButtons[currentTabButtonPosition].firstElementChild ? tabButtons[currentTabButtonPosition].firstElementChild.classList.toggle("active") : tabButtons[currentTabButtonPosition].classList.toggle("active");
         tabButtons[tabPosition].firstElementChild.classList.toggle("active");

@@ -1,4 +1,4 @@
-export default function request(resource, method, data) {
+export default function request(resource, method, data = {}) {
   //https://smacku.herokuapp.com
   const BASE_URL = "http://localhost:3000";
 

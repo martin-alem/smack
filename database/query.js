@@ -30,4 +30,14 @@ async function findAndUpdate(model, filter, data) {
   }
 }
 
-export { findOne, insertOne, findAndUpdate };
+async function findAll(model) {
+  try {
+    const result = await model.find({});
+    return result;
+  } catch (error) {
+    Logger.log("Error", error, import.meta.url);
+    throw error;
+  }
+}
+
+export { findOne, insertOne, findAndUpdate, findAll };
