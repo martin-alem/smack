@@ -3,9 +3,10 @@ import Logger from "../utils/Logger.js";
 import User from "../models/User.js";
 import { findOne } from "../database/query.js";
 
-async function fetchAllFriendsController(req, res, next) {
+async function fetchUserController(req, res, next) {
   try {
     const id = req.params.id;
+    console.log(id);
     const result = await findOne(User, { _id: id });
     res.status(200).json({ friend: result });
   } catch (error) {
@@ -14,4 +15,4 @@ async function fetchAllFriendsController(req, res, next) {
   }
 }
 
-export default fetchAllFriendsController;
+export default fetchUserController;

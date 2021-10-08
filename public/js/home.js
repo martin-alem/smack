@@ -5,7 +5,7 @@ import { getId } from "./utils.js";
 
 // logout and delete account
 (function () {
-  const logout = document.getElementById("logout");
+  const logout = document.getElementById("my_logout");
   const deleteAccount = document.getElementById("delete");
   logout.addEventListener("click", function () {
     const resource = "user/logout";

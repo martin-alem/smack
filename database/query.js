@@ -35,7 +35,7 @@ async function findAll(model) {
     const result = await model.find({});
     return result;
   } catch (error) {
-    Logger.log("Error", error, import.meta.url);
+    Logger.log("I am Here Error", error, import.meta.url);
     throw error;
   }
 }
