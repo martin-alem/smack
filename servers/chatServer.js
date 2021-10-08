@@ -1,13 +1,14 @@
 import { WebSocketServer } from "ws";
 import Chat from "./../models/Chat.js";
 import { insertOne } from "./../database/query.js";
+import httpServer from "./mainServer.js";
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const chatServer = new WebSocketServer({
   clientTracking: true,
   maxPayload: 4e7,
   path: "/chat",
-  port: PORT,
+  server: httpServer,
 });
 
 const Rooms = [];
