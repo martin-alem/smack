@@ -124,7 +124,7 @@ import { getId } from "./utils.js";
   function handleUploadImage(event) {
     event.preventDefault();
     const file = event.target.files[0];
-    if (file.size > 3e7) {
+    if (file.size > 3000) {
       showFormError(imgProfile);
     } else {
       const extension = file["type"].split("/")[1];
