@@ -1,6 +1,6 @@
 class WebSocketConnection {
   constructor() {
-    this.socket = new WebSocket("ws://smacku.herokuapp.com/chat");
+    this.socket = new WebSocket("wss://smacku.herokuapp.com/chat");
     // Connection opened
     this.socket.addEventListener("open", function (event) {
       this.send(JSON.stringify({ event: "connected" }));
