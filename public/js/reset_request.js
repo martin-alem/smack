@@ -5,6 +5,7 @@ import { showError } from "./utils.js";
   const submitButton = document.getElementById("submit");
   const phone = document.getElementById("phone");
   const info = document.querySelector(".info");
+  const error = document.querySelector(".error");
 
   submitButton.addEventListener("click", handleFormSubmit);
 
@@ -26,9 +27,12 @@ import { showError } from "./utils.js";
             .json()
             .then((data) => {
               if (data["status"] === "fail") {
-                showError(data["message"], info);
+                showError(data["message"], error);
               } else {
                 showError(data["message"], info);
+                setInterval(() => {
+                  location.replace("https://smacku.herokuapp.com/login");
+                }, 6000);
               }
             })
             .catch((error) => {
@@ -36,7 +40,6 @@ import { showError } from "./utils.js";
             });
         })
         .catch((error) => {
-          submitButton.removeAttribute("disabled");
           submitButton.textContent = "Request reset";
           console.error(error);
         });

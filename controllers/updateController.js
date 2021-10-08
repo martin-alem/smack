@@ -13,7 +13,7 @@ async function updateController(req, res, next) {
     const data = req.body;
     if (data["rawImage"]) {
       const rawImage = data["rawImage"].split(",")[1];
-      FileReadWrite.writeToFileSync(Buffer.from(rawImage, "base64"), path.join(__dirname, "../private/images", `${data["id"]}.${data["extension"]}`), "w");
+      await FileReadWrite.writeToFile(Buffer.from(rawImage, "base64"), path.join(__dirname, "../private/images", `${data["id"]}.${data["extension"]}`), "w");
     }
     await findAndUpdate(User, { _id: data["id"] }, data["user_data"]);
     res.status(204).end();

@@ -8,6 +8,10 @@ class WebSocketConnection {
 
     this.socket.addEventListener("close", function (event) {
       console.log("Connection closed");
+      setTimeout(function () {
+        console.log("Connection opened");
+        this.socket = new WebSocket("wss://smacku.herokuapp.com/chat");
+      }, 1000);
     });
 
     this.socket.addEventListener("error", function (event) {
