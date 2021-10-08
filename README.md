@@ -1,6 +1,6 @@
 # Smack
 
-A simple chat application with features like **Authentication**, **Authorization**, **Reset Password**, **P2P Chat**
+A simple chat application that allows all registered users to send messages to each other and also invite others.
 
 # Features
 
